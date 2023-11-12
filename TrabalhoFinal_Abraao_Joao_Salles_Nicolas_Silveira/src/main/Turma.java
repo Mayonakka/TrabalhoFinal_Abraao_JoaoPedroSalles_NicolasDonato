@@ -37,7 +37,6 @@ public class Turma {
     public ArrayList<Aluno> getAlunos() {
         return alunos;
     }
-
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;
     }
@@ -54,6 +53,16 @@ public class Turma {
         this.tamanhoTurma = tamanhoTurma;
     }
     public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    public Turma(String disciplina, int numTurma, String semAno, Professor professor, int tamanhoTurma,
+            ArrayList<Aluno> alunos) {
+        this.disciplina = disciplina;
+        this.numTurma = numTurma;
+        this.semAno = semAno;
+        this.professor = professor;
+        this.tamanhoTurma = tamanhoTurma;
         this.alunos = alunos;
     }
 }

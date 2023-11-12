@@ -1,16 +1,17 @@
 package main;
 
+import java.util.Arrays;
+
 public class Professor extends Pessoa{
     
     private int codFuncionario;
-    private int limiteTurmas;
+    private int limiteTurmas = 2;
     private Turma[] turmas = new Turma[limiteTurmas];
 
     
-    public Professor(String name, String cpf, String dataNasc, int codFuncionario, int limiteTurmas) {
-        super(name, cpf, dataNasc);
+    public Professor(String name, String cpf, int codFuncionario) {
+        super(name, cpf);
         this.codFuncionario = codFuncionario;
-        this.limiteTurmas = limiteTurmas;
     }
 
     public int getCodFuncionario() {
@@ -22,7 +23,6 @@ public class Professor extends Pessoa{
     public Turma[] getTurmas() {
         return turmas;
     }
-    
     public void setCodFuncionario(int codFuncionario) {
         this.codFuncionario = codFuncionario;
     }
@@ -33,4 +33,9 @@ public class Professor extends Pessoa{
         this.turmas = turmas;
     }
 
+    @Override
+    public String toString() {
+        return "Professor [codFuncionario=" + codFuncionario + ", limiteTurmas=" + limiteTurmas + ", turmas="
+                + Arrays.toString(turmas) + "]";
+    }
 }

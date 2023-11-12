@@ -3,11 +3,12 @@ package main;
 import java.util.ArrayList;
 
 public class Aluno extends Pessoa{
+
     private int matricula;
     private ArrayList<Disciplina> disciplinas = new ArrayList();
 
-    public Aluno(String name, String cpf, String dataNasc, int matricula) {
-        super(name, cpf, dataNasc);
+    public Aluno(String name, String cpf, int matricula) {
+        super(name, cpf);
         this.matricula = matricula;
     }
 
@@ -17,7 +18,6 @@ public class Aluno extends Pessoa{
     public ArrayList<Disciplina> getDisciplinas() {
         return disciplinas;
     }
-
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
@@ -25,12 +25,8 @@ public class Aluno extends Pessoa{
         this.disciplinas = disciplinas;
     }
 
-    public void setDisciplinas(Disciplina disciplina) throws RuntimeException {
-        if (disciplinas.contains(disciplina)) {
-            throw new RuntimeException("Disciplina já existente");
-        } else {
-            disciplinas.add(disciplina);
-        }
+    @Override
+    public String toString() {
+        return "Aluno [matricula=" + matricula + ", disciplinas=" + disciplinas + "]";
     }
-       
 }

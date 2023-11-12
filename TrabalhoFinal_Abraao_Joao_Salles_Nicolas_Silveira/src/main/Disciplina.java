@@ -31,7 +31,6 @@ public class Disciplina {
     public float getNotaC() {
         return notaC;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -47,5 +46,10 @@ public class Disciplina {
     public void setNotaC(float notaC) {
         this.notaC = notaC;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Disciplina [nome=" + nome + ", status=" + status + ", notaA=" + notaA + ", notaB=" + notaB + ", notaC="
+                + notaC + "]";
+    }
 }

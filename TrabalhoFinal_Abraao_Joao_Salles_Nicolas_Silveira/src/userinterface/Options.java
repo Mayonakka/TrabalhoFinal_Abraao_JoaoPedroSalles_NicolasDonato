@@ -13,29 +13,32 @@ public class Options {
                         +  "5) Sair");
     }
 
-    public void mostrarOpcao_1(){ // Opcao 1 gestao de usuarios
+    public void mostrarGestaoUsuarios(){
         System.out.println("GESTAO DE USUARIOS"
                         +  "1) Adicionar novo usuario"
-                        +  "2) Editar usuario"
+                        +  "2) Excluir usuario"
                         +  "3) Ver Alunos"
-                        +  "4) Ver Professores");
+                        +  "4) Ver Professores"
+                        +  "5) Voltar");
     }
 
-    public void mostrarOpcao_2(){ // Opcao 2 gestao de turmas
+    public void mostrarGestaoTurmas(){
         System.out.println("GESTAO DE TURMAS"
                         +  "1) Adicionar nova Turma"
                         +  "2) Editar Turma"
-                        +  "3) Ver Turmas");
+                        +  "3) Ver Turmas"
+                        +  "5) Voltar");
     }
 
-    public void mostrarOpcao_3(){ // Opcao 3 gestao de nota
+    public void mostrarGestaoNotas(){
         System.out.println("GESTAO DE NOTAS"
                         +  "1) Adicionar Notas"
                         +  "2) Adicionar Notas Recuperacao"
-                        +  "3) Boletim Turma");
+                        +  "3) Boletim Turma"
+                        +  "5) Voltar");
     }
 
-    public void mostrarOpcao_4(){ // Opcao 4 historico do estudante
+    public void mostrarHistoricoEstudante(){
         System.out.println("HISTORICO DO ESTUDANTE"
                         +  "Digite o numero de MATRICULA do estudante: ");
     }
