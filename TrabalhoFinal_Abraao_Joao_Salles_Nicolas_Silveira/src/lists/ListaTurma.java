@@ -1,5 +1,7 @@
-package main;
+package lists;
+
 import java.util.LinkedList;
+import main.Turma;
 
 public class ListaTurma {
  
@@ -12,5 +14,4 @@ public class ListaTurma {
     public void setListaTurma(LinkedList<Turma> listaTurma) {
         this.listaTurma = listaTurma;
     }
-
 }

@@ -1,5 +1,7 @@
-package main;
+package lists;
+
 import java.util.LinkedList;
+import main.Aluno;
 
 public class ListaAluno {
 
@@ -12,5 +14,4 @@ public class ListaAluno {
     public void setListaAluno(LinkedList<Aluno> listaAluno) {
         this.listaAluno = listaAluno;
     }
-
 }

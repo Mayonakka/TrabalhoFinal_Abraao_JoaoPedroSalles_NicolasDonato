@@ -56,5 +56,4 @@ public class Turma {
     public void setAlunos(ArrayList<Aluno> alunos) {
         this.alunos = alunos;
     }
-
 }
