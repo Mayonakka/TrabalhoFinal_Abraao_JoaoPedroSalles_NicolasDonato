@@ -8,12 +8,12 @@ import lists.ListaProfessor;
 public class Options {
     
     public static void registerUser(String name, String cpf, int op, 
-        ListaAluno listaAluno, ListaProfessor listaProfessor) throws IOException{
+        ListaAluno listaAluno, ListaProfessor listaProfessor) throws Exception{
         if(op == 1)
             listaAluno.createStudent(name, cpf);
         else if (op == 2)
             listaProfessor.createProfessor(name, cpf);
         else
-            throw new IOException();
+            throw new Exception("Aqui não palhaço");
     }
 }
