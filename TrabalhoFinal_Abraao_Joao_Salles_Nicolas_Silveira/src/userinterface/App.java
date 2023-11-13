@@ -10,7 +10,7 @@ public class App {
     public static void main(String[] args) {
         
         ListaProfessor listaProfessor = new ListaProfessor();
-                ListaAluno ListaAluno = new ListaAluno();
+                ListaAluno listaAluno = new ListaAluno();
                 ListaTurma listaTurma = new ListaTurma();
                         Scanner input = new Scanner(System.in);
 
@@ -18,7 +18,7 @@ public class App {
         do{
             switch (Menu.menuPrincipal(input)) {
                 case 1:
-                    Menu.opcao1(input);
+                    Menu.opcao1(input, listaAluno, listaProfessor);
                     break;
                 case 2:
                     Menu.opcao2(input);

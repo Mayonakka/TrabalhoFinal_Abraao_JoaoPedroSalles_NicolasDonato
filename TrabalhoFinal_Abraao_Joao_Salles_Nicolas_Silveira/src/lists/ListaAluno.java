@@ -14,4 +14,14 @@ public class ListaAluno {
     public void setListaAluno(LinkedList<Aluno> listaAluno) {
         this.listaAluno = listaAluno;
     }
+
+    public boolean createStudent(String name, String cpf){
+        try {
+            int nextMatricula = (listaAluno.isEmpty()) ? 0001 : listaAluno.getLast().getMatricula() + 1;
+            listaAluno.add(new Aluno(name, cpf, nextMatricula));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

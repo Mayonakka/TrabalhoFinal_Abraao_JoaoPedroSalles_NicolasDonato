@@ -42,4 +42,8 @@ public class Options {
         System.out.println("HISTORICO DO ESTUDANTE"
                         +  "\nDigite o numero de MATRICULA do estudante: ");
     }
+
+    public static void createUser(){
+        System.out.println("\nDigite [1] para cadastrar ALUNO ou [2] para cadastrar PROFESSOR: ");
+    }
 }
