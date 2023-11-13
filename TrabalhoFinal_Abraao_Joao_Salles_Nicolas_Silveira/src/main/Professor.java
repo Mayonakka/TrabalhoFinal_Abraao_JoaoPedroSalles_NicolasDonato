@@ -35,7 +35,6 @@ public class Professor extends Pessoa{
 
     @Override
     public String toString() {
-        return "Professor [codFuncionario=" + codFuncionario + ", limiteTurmas=" + limiteTurmas + ", turmas="
-                + Arrays.toString(turmas) + "]";
+        return codFuncionario + "  |  " + getName();
     }
 }

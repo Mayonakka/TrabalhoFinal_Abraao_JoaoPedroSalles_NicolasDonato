@@ -12,34 +12,33 @@ public class Menu {
 
     public static void opcao1(Scanner in, ListaAluno listaAluno, ListaProfessor listaProfessor){
         boolean exit = true;
-        do{
+        do {
             switch (UserInteraction.mostrarGestaoUsuarios(in)) {
                 case 1:
                     UserInteraction.createUser(in, listaAluno, listaProfessor);
                     break;
                 case 2:
-                    System.out.println("3");
+                    UserInteraction.removeUser(in, listaAluno, listaProfessor);
                     break;
                 case 3:
-                    System.out.println("4");
+                    UserInteraction.showStudentList(listaAluno);
                     break;
                 case 4:
-                    System.out.println("4");
+                    UserInteraction.showProfessorList(listaProfessor);
                     break;
                 case 5:
                     exit = false;
                     break;
-            
                 default:
-                    break;
+                    UserInteraction.invalidOption();
             }
-        }while(exit);
+        } while (exit);
     }
 
     public static void opcao2(Scanner in) {
         boolean exit = true;
-        do{
-             switch (UserInteraction.mostrarGestaoTurmas(in)) {
+        do {
+            switch (UserInteraction.mostrarGestaoTurmas(in)) {
                 case 1:
                     System.out.println("2");
                     break;
@@ -52,14 +51,16 @@ public class Menu {
                 case 4:
                     exit = false;
                     break;
+                default:
+                    UserInteraction.invalidOption();
             }
-        }while(exit);
-    }  
+        } while (exit);
+    }
 
-    public static void opcao3(Scanner in){
+    public static void opcao3(Scanner in) {
         boolean exit = true;
-        do{
-             switch (UserInteraction.mostrarGestaoNotas(in)) {
+        do {
+            switch (UserInteraction.mostrarGestaoNotas(in)) {
                 case 1:
                     System.out.println("2");
                     break;
@@ -72,11 +73,13 @@ public class Menu {
                 case 4:
                     exit = false;
                     break;
+                default:
+                    UserInteraction.invalidOption();
             }
-        }while(exit);
-    }  
+        } while (exit);
+    }
 
-    public static void opcao4(Scanner in){
+    public static void opcao4(Scanner in) {
         UserInteraction.mostrarHistoricoEstudante(in);
     }
 }

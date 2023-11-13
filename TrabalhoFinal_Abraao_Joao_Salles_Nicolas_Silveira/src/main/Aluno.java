@@ -24,4 +24,9 @@ public class Aluno extends Pessoa{
     public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
     }
+
+    @Override
+    public String toString() {
+        return matricula + "  |  " + getName();
+    }
 }

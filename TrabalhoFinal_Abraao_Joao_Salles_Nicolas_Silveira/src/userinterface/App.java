@@ -34,8 +34,7 @@ public class App {
                     break;
             
                 default:
-                    System.out.println("Opcao invalida");
-                    break;
+                    UserInteraction.invalidOption();
             }
 
         }while(exit);

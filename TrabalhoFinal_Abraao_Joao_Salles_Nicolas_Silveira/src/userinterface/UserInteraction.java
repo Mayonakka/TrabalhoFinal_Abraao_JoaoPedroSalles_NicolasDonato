@@ -44,23 +44,55 @@ public class UserInteraction {
         return Integer.parseInt(in.nextLine());
     }
 
+    public static void invalidOption() {
+        System.out.println("Opcao invalida");
+    }
+
     public static void mostrarHistoricoEstudante(Scanner in){
         System.out.println("HISTORICO DO ESTUDANTE"
                         +  "\nDigite o numero de MATRICULA do estudante: ");
     }
 
-    public static void createUser(Scanner in, ListaAluno listaAluno, ListaProfessor listaProfessor){
-        System.out.println("Digite o nome do USUARIO: ");
-        String name = in.nextLine();
-        System.out.println("Digite o CPF do USUARIO: ");
-        String cpf = in.nextLine();
-        System.out.println("\nDigite [1] para cadastrar ALUNO ou [2] para cadastrar PROFESSOR: ");
-        int op = Integer.parseInt(in.nextLine());
+    private static int professorOrStudent(Scanner in){
+        System.out.println("\nDigite [1] para ALUNO ou [2] para PROFESSOR: ");
+        return Integer.parseInt(in.nextLine());
+    }
 
+    private static String typeCPF(Scanner in){
+        System.out.println("Digite o CPF do USUARIO: ");
+        return in.nextLine();
+    }
+
+    private static String typeName(Scanner in){
+        System.out.println("Digite o nome do USUARIO: ");
+        return in.nextLine();
+    }
+
+    private static int typeCodeUser(Scanner in){
+        System.out.println("\nDigite o número de MATRICULA/CODIGO de FUNCIONARIO: ");
+        return Integer.parseInt(in.nextLine());
+    }
+
+    public static void createUser(Scanner in, ListaAluno listaAluno, ListaProfessor listaProfessor){
         try{
-            Options.registerUser(name, cpf, op, listaAluno, listaProfessor);
+            Options.registerUser(typeName(in), typeCPF(in), professorOrStudent(in), listaAluno, listaProfessor);
         } catch (Exception e) {
             e.getMessage();
         }
+    }
+
+    public static void removeUser(Scanner in, ListaAluno listaAluno, ListaProfessor listaProfessor){
+        try {
+            Options.unregisterUser(professorOrStudent(in), listaAluno, listaProfessor, typeCodeUser(in));
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+    public static void showStudentList(ListaAluno listaAluno){
+        System.out.println(listaAluno.toString());
+    }
+    public static void showProfessorList(ListaProfessor listaProfessor){
+        System.out.println(listaProfessor.toString());
     }
 }

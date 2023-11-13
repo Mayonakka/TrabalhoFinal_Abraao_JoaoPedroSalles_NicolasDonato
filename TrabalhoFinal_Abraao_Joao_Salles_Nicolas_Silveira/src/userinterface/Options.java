@@ -16,4 +16,14 @@ public class Options {
         else
             throw new Exception("Aqui não palhaço");
     }
+
+    public static void unregisterUser(int op,ListaAluno listaAluno, 
+            ListaProfessor listaProfessor, int code) throws Exception{
+        if(op == 1)
+            listaAluno.removeStudent(code);
+        else if (op == 2)
+            listaProfessor.removeProfessor(code);
+        else
+            throw new Exception("Aqui não palhaço");
+    }
 }
