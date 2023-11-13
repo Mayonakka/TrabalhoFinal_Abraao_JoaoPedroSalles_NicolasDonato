@@ -4,42 +4,42 @@ import java.util.Scanner;
 
 public class Options {
     
-    public void mostrarMenuPrincipal(){
+    public static void mostrarMenuPrincipal(){
         System.out.println("MENU PRINCIPAL"
-                        +  "1) Gestao de usuarios"
-                        +  "2) Gestao de turmas"
-                        +  "3) Gestao de Notas"
-                        +  "4) Historico do estudante"
-                        +  "5) Sair");
+                        +  "\n1) Gestao de usuarios"
+                        +  "\n2) Gestao de turmas"
+                        +  "\n3) Gestao de Notas"
+                        +  "\n4) Historico do estudante"
+                        +  "\n5) Sair");
     }
 
-    public void mostrarGestaoUsuarios(){
+    public static void mostrarGestaoUsuarios(){
         System.out.println("GESTAO DE USUARIOS"
-                        +  "1) Adicionar novo usuario"
-                        +  "2) Excluir usuario"
-                        +  "3) Ver Alunos"
-                        +  "4) Ver Professores"
-                        +  "5) Voltar");
+                        +  "\n1) Adicionar novo usuario"
+                        +  "\n2) Excluir usuario"
+                        +  "\n3) Ver Alunos"
+                        +  "\n4) Ver Professores"
+                        +  "\n5) Voltar");
     }
 
-    public void mostrarGestaoTurmas(){
+    public static void mostrarGestaoTurmas(){
         System.out.println("GESTAO DE TURMAS"
-                        +  "1) Adicionar nova Turma"
-                        +  "2) Editar Turma"
-                        +  "3) Ver Turmas"
-                        +  "5) Voltar");
+                        +  "\n1) Adicionar nova Turma"
+                        +  "\n2) Editar Turma"
+                        +  "\n3) Ver Turmas"
+                        +  "\n4) Voltar");
     }
 
-    public void mostrarGestaoNotas(){
+    public static void mostrarGestaoNotas(){
         System.out.println("GESTAO DE NOTAS"
-                        +  "1) Adicionar Notas"
-                        +  "2) Adicionar Notas Recuperacao"
-                        +  "3) Boletim Turma"
-                        +  "5) Voltar");
+                        +  "\n1) Adicionar Notas"
+                        +  "\n2) Adicionar Notas Recuperacao"
+                        +  "\n3) Boletim Turma"
+                        +  "\n4) Voltar");
     }
 
-    public void mostrarHistoricoEstudante(){
+    public static void mostrarHistoricoEstudante(){
         System.out.println("HISTORICO DO ESTUDANTE"
-                        +  "Digite o numero de MATRICULA do estudante: ");
+                        +  "\nDigite o numero de MATRICULA do estudante: ");
     }
 }

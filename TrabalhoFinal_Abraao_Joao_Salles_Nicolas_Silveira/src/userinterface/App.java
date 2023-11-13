@@ -13,22 +13,21 @@ public class App {
                 ListaAluno ListaAluno = new ListaAluno();
                 ListaTurma listaTurma = new ListaTurma();
                         Scanner input = new Scanner(System.in);
-                            Menu menu = new Menu();
 
         boolean exit = true;
         do{
-            switch (menu.menuPrincipal(input)) {
+            switch (Menu.menuPrincipal(input)) {
                 case 1:
-                    System.out.println("1");
+                    Menu.opcao1(input);
                     break;
                 case 2:
-                    System.out.println("2");
+                    Menu.opcao2(input);
                     break;
                 case 3:
-                    System.out.println("3");
+                    Menu.opcao3(input);
                     break;
                 case 4:
-                    System.out.println("4");
+                    Menu.opcao4(input);
                     break;
                 case 5:
                     exit = false;
