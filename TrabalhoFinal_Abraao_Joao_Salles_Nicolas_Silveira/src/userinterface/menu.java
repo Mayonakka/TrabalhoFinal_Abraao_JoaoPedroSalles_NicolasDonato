@@ -6,23 +6,16 @@ import lists.ListaProfessor;
 
 public class Menu {
 
-    public static int menuPrincipal(Scanner input){
-        Options.mostrarMenuPrincipal();
-        return Integer.parseInt(input.nextLine());
+    public static int menuPrincipal(Scanner in) {
+        return UserInteraction.mostrarMenuPrincipal(in);
     }
 
-    public static void opcao1(Scanner input, ListaAluno listaAluno, ListaProfessor listaProfessor){
+    public static void opcao1(Scanner in, ListaAluno listaAluno, ListaProfessor listaProfessor){
         boolean exit = true;
         do{
-            Options.mostrarGestaoUsuarios();
-            switch (Integer.parseInt(input.nextLine())) {
+            switch (UserInteraction.mostrarGestaoUsuarios(in)) {
                 case 1:
-                    Options.createUser();
-                    int op = Integer.parseInt(input.nextLine());
-                    if(op==1)
-                        UserInteraction.registerStudent(input, listaAluno);
-                    else if (op==2)
-                        UserInteraction.registerProfessor(input, listaProfessor);
+                    UserInteraction.createUser(in, listaAluno, listaProfessor);
                     break;
                 case 2:
                     System.out.println("3");
@@ -43,11 +36,10 @@ public class Menu {
         }while(exit);
     }
 
-    public static void opcao2(Scanner input){
-       Options.mostrarGestaoTurmas();
+    public static void opcao2(Scanner in) {
         boolean exit = true;
         do{
-            switch (input.nextInt()) {
+             switch (UserInteraction.mostrarGestaoTurmas(in)) {
                 case 1:
                     System.out.println("2");
                     break;
@@ -60,18 +52,14 @@ public class Menu {
                 case 4:
                     exit = false;
                     break;
-            
-                default:
-                    break;
             }
         }while(exit);
-    }
+    }  
 
-    public static void opcao3(Scanner input){
-       Options.mostrarGestaoNotas();
+    public static void opcao3(Scanner in){
         boolean exit = true;
         do{
-            switch (input.nextInt()) {
+             switch (UserInteraction.mostrarGestaoNotas(in)) {
                 case 1:
                     System.out.println("2");
                     break;
@@ -84,16 +72,11 @@ public class Menu {
                 case 4:
                     exit = false;
                     break;
-            
-                default:
-                    break;
             }
         }while(exit);
-    }
+    }  
 
-    public static void opcao4(Scanner input){
-        Options.mostrarHistoricoEstudante();
+    public static void opcao4(Scanner in){
+        UserInteraction.mostrarHistoricoEstudante(in);
     }
-
-    
 }
