@@ -10,7 +10,7 @@ public class Menu {
         return UserInteraction.mostrarMenuPrincipal(in);
     }
 
-    public static void opcao1(Scanner in, StudentList studentList, ProfessorList professorList){
+    public static void opcao1(Scanner in, StudentList studentList, ProfessorList professorList) {
         boolean exit = true;
         do {
             switch (UserInteraction.mostrarGestaoUsuarios(in)) {
