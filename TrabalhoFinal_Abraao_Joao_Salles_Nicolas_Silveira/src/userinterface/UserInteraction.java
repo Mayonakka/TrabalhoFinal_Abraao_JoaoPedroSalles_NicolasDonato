@@ -1,8 +1,8 @@
 package userinterface;
 
 import java.util.Scanner;
-import lists.ListaAluno;
-import lists.ListaProfessor;
+import lists.StudentList;
+import lists.ProfessorList;
 
 public class UserInteraction {
 
@@ -73,32 +73,32 @@ public class UserInteraction {
         return Integer.parseInt(in.nextLine());
     }
 
-    public static void createUser(Scanner in, ListaAluno listaAluno, ListaProfessor listaProfessor){
+    public static void createUser(Scanner in, StudentList studentList, ProfessorList professorList){
         try{
-            Options.registerUser(typeName(in), typeCPF(in), professorOrStudent(in), listaAluno, listaProfessor);
+            Options.registerUser(typeName(in), typeCPF(in), professorOrStudent(in), studentList, professorList);
         } catch (Exception e) {
             e.getMessage();
         }
     }
 
-    public static void removeUser(Scanner in, ListaAluno listaAluno, ListaProfessor listaProfessor){
+    public static void removeUser(Scanner in, StudentList studentList, ProfessorList professorList){
         try {
-            Options.unregisterUser(professorOrStudent(in), listaAluno, listaProfessor, typeCodeUser(in));
+            Options.unregisterUser(professorOrStudent(in), studentList, professorList, typeCodeUser(in));
         } catch (Exception e) {
             e.getMessage();
         }
     }
 
-    public static void showStudentList(ListaAluno listaAluno){
+    public static void showStudentList(StudentList studentList){
         try {
-            System.out.println(listaAluno.getStudentList(0));
+            System.out.println(studentList.getStudentList(0));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
-    public static void showProfessorList(ListaProfessor listaProfessor){
+    public static void showProfessorList(ProfessorList professorList){
         try {
-            System.out.println(listaProfessor.getProfessorList(0));
+            System.out.println(professorList.getProfessorList(0));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

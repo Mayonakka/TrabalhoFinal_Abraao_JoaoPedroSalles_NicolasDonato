@@ -2,32 +2,32 @@ package main;
 
 import java.util.Arrays;
 
-public class Professor extends Pessoa{
+public class Professor extends Person{
     
-    private int codFuncionario;
-    private int limiteTurmas = 2;
-    private Turma[] turmas = new Turma[limiteTurmas];
+    private int professorCode;
+    private int limit = 2;
+    private Turma[] turmas = new Turma[limit];
 
     
-    public Professor(String name, String cpf, int codFuncionario) {
+    public Professor(String name, String cpf, int professorCode) {
         super(name, cpf);
-        this.codFuncionario = codFuncionario;
+        this.professorCode = professorCode;
     }
 
-    public int getCodFuncionario() {
-        return codFuncionario;
+    public int getProfessorCode() {
+        return professorCode;
     }
-    public int getLimiteTurmas() {
-        return limiteTurmas;
+    public int getLimit() {
+        return limit;
     }
     public Turma[] getTurmas() {
         return turmas;
     }
-    public void setCodFuncionario(int codFuncionario) {
-        this.codFuncionario = codFuncionario;
+    public void setProfessorCode(int professorCode) {
+        this.professorCode = professorCode;
     }
-    public void setLimiteTurmas(int limiteTurmas) {
-        this.limiteTurmas = limiteTurmas;
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
     public void setTurmas(Turma[] turmas) {
         this.turmas = turmas;
@@ -35,6 +35,6 @@ public class Professor extends Pessoa{
 
     @Override
     public String toString() {
-        return codFuncionario + "  |  " + getName();
+        return professorCode + "  |  " + getName();
     }
 }

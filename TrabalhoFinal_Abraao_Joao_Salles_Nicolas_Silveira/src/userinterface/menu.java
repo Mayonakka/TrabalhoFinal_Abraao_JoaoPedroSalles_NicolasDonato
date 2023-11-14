@@ -1,8 +1,8 @@
 package userinterface;
 
 import java.util.Scanner;
-import lists.ListaAluno;
-import lists.ListaProfessor;
+import lists.StudentList;
+import lists.ProfessorList;
 
 public class Menu {
 
@@ -10,21 +10,21 @@ public class Menu {
         return UserInteraction.mostrarMenuPrincipal(in);
     }
 
-    public static void opcao1(Scanner in, ListaAluno listaAluno, ListaProfessor listaProfessor){
+    public static void opcao1(Scanner in, StudentList studentList, ProfessorList professorList){
         boolean exit = true;
         do {
             switch (UserInteraction.mostrarGestaoUsuarios(in)) {
                 case 1:
-                    UserInteraction.createUser(in, listaAluno, listaProfessor);
+                    UserInteraction.createUser(in, studentList, professorList);
                     break;
                 case 2:
-                    UserInteraction.removeUser(in, listaAluno, listaProfessor);
+                    UserInteraction.removeUser(in, studentList, professorList);
                     break;
                 case 3:
-                    UserInteraction.showStudentList(listaAluno);
+                    UserInteraction.showStudentList(studentList);
                     break;
                 case 4:
-                    UserInteraction.showProfessorList(listaProfessor);
+                    UserInteraction.showProfessorList(professorList);
                     break;
                 case 5:
                     exit = false;

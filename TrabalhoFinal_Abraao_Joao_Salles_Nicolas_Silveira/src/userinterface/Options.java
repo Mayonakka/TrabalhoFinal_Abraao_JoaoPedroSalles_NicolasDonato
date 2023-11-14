@@ -1,29 +1,27 @@
 package userinterface;
 
-import java.io.IOException;
-
-import lists.ListaAluno;
-import lists.ListaProfessor;
+import lists.StudentList;
+import lists.ProfessorList;
 
 public class Options {
     
     public static void registerUser(String name, String cpf, int op, 
-        ListaAluno listaAluno, ListaProfessor listaProfessor) throws Exception{
+        StudentList studentList, ProfessorList professorList) throws Exception{
         if(op == 1)
-            listaAluno.createStudent(name, cpf);
+            studentList.createStudent(name, cpf);
         else if (op == 2)
-            listaProfessor.createProfessor(name, cpf);
+            professorList.createProfessor(name, cpf);
         else
-            throw new Exception("Aqui não palhaço");
+            throw new Exception("Não foi possivel REGISTRAR o USUARIO");
     }
 
-    public static void unregisterUser(int op,ListaAluno listaAluno, 
-            ListaProfessor listaProfessor, int code) throws Exception{
+    public static void unregisterUser(int op,StudentList sutudentList, 
+            ProfessorList studentProfessor, int code) throws Exception{
         if(op == 1)
-            listaAluno.removeStudent(code);
+            sutudentList.removeStudent(code);
         else if (op == 2)
-            listaProfessor.removeProfessor(code);
+            studentProfessor.removeProfessor(code);
         else
-            throw new Exception("Aqui não palhaço");
+            throw new Exception("Não foi possivel REMOVER o USUARIO");
     }
 }

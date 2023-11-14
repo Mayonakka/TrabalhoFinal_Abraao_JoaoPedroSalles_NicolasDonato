@@ -2,15 +2,15 @@ package userinterface;
 
 import java.util.Scanner;
 
-import lists.ListaAluno;
-import lists.ListaProfessor;
+import lists.StudentList;
+import lists.ProfessorList;
 import lists.ListaTurma;
 
 public class App {
     public static void main(String[] args) {
         
-        ListaProfessor listaProfessor = new ListaProfessor();
-                ListaAluno listaAluno = new ListaAluno();
+        ProfessorList professorList = new ProfessorList();
+                StudentList studentList = new StudentList();
                 ListaTurma listaTurma = new ListaTurma();
                         Scanner input = new Scanner(System.in);
 
@@ -18,7 +18,7 @@ public class App {
         do{
             switch (Menu.menuPrincipal(input)) {
                 case 1:
-                    Menu.opcao1(input, listaAluno, listaProfessor);
+                    Menu.opcao1(input, studentList, professorList);
                     break;
                 case 2:
                     Menu.opcao2(input);

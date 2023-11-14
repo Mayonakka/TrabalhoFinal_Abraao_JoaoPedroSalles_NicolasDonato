@@ -1,11 +1,11 @@
 package main;
 
-public abstract class Pessoa {
+public abstract class Person {
 
     private String name;
     private String cpf;
 
-    public Pessoa(String name, String cpf) {
+    public Person(String name, String cpf) {
         this.name = name;
         this.cpf = cpf;
     }
