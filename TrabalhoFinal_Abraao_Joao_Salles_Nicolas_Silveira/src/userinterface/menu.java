@@ -18,7 +18,7 @@ public class Menu {
                     Options.registerUser(in, studentList, professorList);
                     break;
                 case 2:
-                    
+                    Options.unregisterUser(in, studentList, professorList);
                     break;
                 case 3:
                     Options.showUserList(studentList);
