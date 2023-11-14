@@ -16,7 +16,7 @@ public class StudentList implements Lists {
 
 
     public void createUser(String name, String cpf) {
-        int nextStudentCode = (studentList.isEmpty()) ? 0001 : studentList.getLast().getStudentCode() + 1;
+        int nextStudentCode = (studentList.isEmpty()) ? 10001 : studentList.getLast().getStudentCode() + 1;
         studentList.add(new Student(name, cpf, nextStudentCode));
     }
 
