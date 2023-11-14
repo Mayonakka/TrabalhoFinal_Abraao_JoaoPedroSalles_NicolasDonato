@@ -1,27 +1,41 @@
 package userinterface;
 
 import lists.StudentList;
+
+import java.util.Scanner;
+
+import lists.Lists;
 import lists.ProfessorList;
 
 public class Options {
-    
-    public static void registerUser(String name, String cpf, int op, 
-        StudentList studentList, ProfessorList professorList) throws Exception{
+
+    static Lists checksCreation(int op, Lists studentList, Lists professorList) throws Exception{
         if(op == 1)
-            studentList.createStudent(name, cpf);
+            return studentList; 
         else if (op == 2)
-            professorList.createProfessor(name, cpf);
+            return professorList;
         else
-            throw new Exception("Não foi possivel REGISTRAR o USUARIO");
+            throw new Exception("Opcao inválida");
+    }
+    
+    static void registerUser(Scanner in, StudentList studentList, ProfessorList professorList) {
+        try {
+            checksCreation(UserInteraction.professorOrStudent(in), studentList, 
+            professorList).createUser(UserInteraction.typeName(in), UserInteraction.typeCPF(in));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public static void unregisterUser(int op,StudentList sutudentList, 
-            ProfessorList studentProfessor, int code) throws Exception{
-        if(op == 1)
-            sutudentList.removeStudent(code);
-        else if (op == 2)
-            studentProfessor.removeProfessor(code);
-        else
-            throw new Exception("Não foi possivel REMOVER o USUARIO");
+    static void unregisterUser() {
+
+    }
+
+    static void showUserList(Lists lists){
+        try {
+            System.out.println(lists.getUserList(0));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

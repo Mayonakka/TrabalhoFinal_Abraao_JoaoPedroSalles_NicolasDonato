@@ -15,16 +15,16 @@ public class Menu {
         do {
             switch (UserInteraction.mostrarGestaoUsuarios(in)) {
                 case 1:
-                    UserInteraction.createUser(in, studentList, professorList);
+                    Options.registerUser(in, studentList, professorList);
                     break;
                 case 2:
-                    UserInteraction.removeUser(in, studentList, professorList);
+                    
                     break;
                 case 3:
-                    UserInteraction.showStudentList(studentList);
+                    Options.showUserList(studentList);
                     break;
                 case 4:
-                    UserInteraction.showProfessorList(professorList);
+                    Options.showUserList(professorList);
                     break;
                 case 5:
                     exit = false;
@@ -80,6 +80,5 @@ public class Menu {
     }
 
     public static void opcao4(Scanner in) {
-        UserInteraction.mostrarHistoricoEstudante(in);
     }
 }

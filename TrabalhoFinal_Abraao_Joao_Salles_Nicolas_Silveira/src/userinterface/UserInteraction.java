@@ -1,12 +1,10 @@
 package userinterface;
 
 import java.util.Scanner;
-import lists.StudentList;
-import lists.ProfessorList;
 
 public class UserInteraction {
 
-    public static int mostrarMenuPrincipal(Scanner in){
+    static int mostrarMenuPrincipal(Scanner in){
         System.out.println("MENU PRINCIPAL"
                         +  "\n1) Gestao de usuarios"
                         +  "\n2) Gestao de turmas"
@@ -16,7 +14,7 @@ public class UserInteraction {
         return Integer.parseInt(in.nextLine());
     }
 
-    public static int mostrarGestaoUsuarios(Scanner in){
+    static int mostrarGestaoUsuarios(Scanner in){
         System.out.println("GESTAO DE USUARIOS"
                         +  "\n1) Adicionar novo usuario"
                         +  "\n2) Excluir usuario"
@@ -26,7 +24,7 @@ public class UserInteraction {
         return Integer.parseInt(in.nextLine());
     }
 
-    public static int mostrarGestaoTurmas(Scanner in){
+    static int mostrarGestaoTurmas(Scanner in){
         System.out.println("GESTAO DE TURMAS"
                         +  "\n1) Adicionar nova Turma"
                         +  "\n2) Editar Turma"
@@ -35,7 +33,7 @@ public class UserInteraction {
         return Integer.parseInt(in.nextLine());
     }
 
-    public static int mostrarGestaoNotas(Scanner in){
+    static int mostrarGestaoNotas(Scanner in){
         System.out.println("GESTAO DE NOTAS"
                         +  "\n1) Adicionar Notas"
                         +  "\n2) Adicionar Notas Recuperacao"
@@ -44,63 +42,28 @@ public class UserInteraction {
         return Integer.parseInt(in.nextLine());
     }
 
-    public static void invalidOption() {
+    static void invalidOption() {
         System.out.println("Opcao invalida");
     }
 
-    public static void mostrarHistoricoEstudante(Scanner in){
-        System.out.println("HISTORICO DO ESTUDANTE"
-                        +  "\nDigite o numero de MATRICULA do estudante: ");
-    }
-
-    private static int professorOrStudent(Scanner in){
-        System.out.println("\nDigite [1] para ALUNO ou [2] para PROFESSOR: ");
+    static int professorOrStudent(Scanner in){
+        System.out.println("\n[1]ALUNO ou [2]PROFESSOR: ");
         return Integer.parseInt(in.nextLine());
     }
 
-    private static String typeCPF(Scanner in){
+    static String typeCPF(Scanner in){
         System.out.println("Digite o CPF do USUARIO: ");
         return in.nextLine();
     }
 
-    private static String typeName(Scanner in){
+    static String typeName(Scanner in){
         System.out.println("Digite o nome do USUARIO: ");
         return in.nextLine();
     }
 
-    private static int typeCodeUser(Scanner in){
-        System.out.println("\nDigite o número de MATRICULA/CODIGO de FUNCIONARIO: ");
+    static int typeCodeUser(Scanner in){
+        System.out.println("\nDigite a MATRICULA ou o CODIGO de FUNCIONARIO: ");
         return Integer.parseInt(in.nextLine());
     }
 
-    public static void createUser(Scanner in, StudentList studentList, ProfessorList professorList){
-        try{
-            Options.registerUser(typeName(in), typeCPF(in), professorOrStudent(in), studentList, professorList);
-        } catch (Exception e) {
-            e.getMessage();
-        }
-    }
-
-    public static void removeUser(Scanner in, StudentList studentList, ProfessorList professorList){
-        try {
-            Options.unregisterUser(professorOrStudent(in), studentList, professorList, typeCodeUser(in));
-        } catch (Exception e) {
-            e.getMessage();
-        }
-    }
-
-    public static void showStudentList(StudentList studentList){
-        try {
-            System.out.println(studentList.getStudentList(0));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    public static void showProfessorList(ProfessorList professorList){
-        try {
-            System.out.println(professorList.getProfessorList(0));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }
