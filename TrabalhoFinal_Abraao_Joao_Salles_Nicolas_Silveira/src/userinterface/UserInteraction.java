@@ -90,9 +90,17 @@ public class UserInteraction {
     }
 
     public static void showStudentList(ListaAluno listaAluno){
-        System.out.println(listaAluno.toString());
+        try {
+            System.out.println(listaAluno.getStudentList(0));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     public static void showProfessorList(ListaProfessor listaProfessor){
-        System.out.println(listaProfessor.toString());
+        try {
+            System.out.println(listaProfessor.getProfessorList(0));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

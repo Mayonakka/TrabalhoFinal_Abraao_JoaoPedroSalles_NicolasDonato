@@ -10,7 +10,6 @@ public class ListaAluno {
     public LinkedList<Aluno> getListaAluno() {
         return listaAluno;
     }
-
     public void setListaAluno(LinkedList<Aluno> listaAluno) {
         this.listaAluno = listaAluno;
     }
@@ -19,16 +18,16 @@ public class ListaAluno {
         int nextMatricula = (listaAluno.isEmpty()) ? 0001 : listaAluno.getLast().getMatricula() + 1;
         listaAluno.add(new Aluno(name, cpf, nextMatricula));
     }
-
     public void removeStudent(int codeStudent) {
         listaAluno.removeIf(a -> a.getMatricula() == codeStudent);
     }
 
-    @Override
-    public String toString() {
-        for (Aluno aluno : listaAluno) {
-            return aluno.toString();
-        }
-        return null;
+    public String getStudentList(int index) throws Exception {
+        if(listaAluno.isEmpty())
+            throw new Exception("Lista vazia");
+        else if (index == listaAluno.size() -1)
+            return listaAluno.getLast().toString();
+        else 
+            return listaAluno.get(index).toString() + "\n" + getStudentList(index + 1);
     }
 }

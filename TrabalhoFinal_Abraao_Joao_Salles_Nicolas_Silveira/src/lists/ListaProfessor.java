@@ -24,11 +24,12 @@ public class ListaProfessor {
         listaProfessor.removeIf(p -> p.getCodFuncionario() == codeProfessor);
     }
 
-    @Override
-    public String toString() {
-        for (Professor professor : listaProfessor) {
-            return professor.toString();
-        }
-        return null;
+    public String getProfessorList(int index) throws Exception{
+        if(listaProfessor.isEmpty())
+            throw new Exception("Lista vazia");
+        else if (index == listaProfessor.size() -1)
+            return listaProfessor.getLast().toString();
+        else 
+            return listaProfessor.get(index).toString() + "\n" + getProfessorList(index + 1);
     }
 }
