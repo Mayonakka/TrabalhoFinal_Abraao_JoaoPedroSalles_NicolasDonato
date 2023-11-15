@@ -6,9 +6,10 @@ import lists.Lists;
 
 public class UI {
 
-    final static String CLEAR = "\u001B[H\u001B[2J";
-    final static String RESET = "\u001B[0m";
-      final static String RED = "\u001B[31m";
+    public final static String CLEAR = "\u001B[H\u001B[2J";
+    public final static String RESET = "\u001B[0m";
+    public final static String GREEN = "\u001B[32m";
+      public final static String RED = "\u001B[31m";
 
     static int mostrarMenuPrincipal(Scanner input){
         System.out.println(CLEAR + "MENU PRINCIPAL"

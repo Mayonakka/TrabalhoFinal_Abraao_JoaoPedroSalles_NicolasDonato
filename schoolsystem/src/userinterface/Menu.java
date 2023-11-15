@@ -15,11 +15,12 @@ public class Menu {
         do {
             switch (UI.mostrarGestaoUsuarios(input)) {
                 case 1:
-                    System.out.println(Options.cadastroOk(input, studentList, professorList));
+                    System.out.println(Options.register(input, studentList, professorList));
                     input.nextLine();
                     break;
                 case 2:
-                    Options.unregisterUser(input, studentList, professorList);
+                    System.out.println(Options.unregister(input, studentList, professorList));
+                    input.nextLine();
                     break;
                 case 3:
                     UI.showUserList(studentList, input);
