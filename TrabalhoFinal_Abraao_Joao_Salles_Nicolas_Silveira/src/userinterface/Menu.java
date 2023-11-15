@@ -6,79 +6,80 @@ import lists.ProfessorList;
 
 public class Menu {
 
-    public static int menuPrincipal(Scanner in) {
-        return UserInteraction.mostrarMenuPrincipal(in);
+    public static int menuPrincipal(Scanner input) {
+        return UI.mostrarMenuPrincipal(input);
     }
 
-    public static void opcao1(Scanner in, StudentList studentList, ProfessorList professorList) {
+    public static void opcao1(Scanner input, StudentList studentList, ProfessorList professorList) {
         boolean exit = true;
         do {
-            switch (UserInteraction.mostrarGestaoUsuarios(in)) {
+            switch (UI.mostrarGestaoUsuarios(input)) {
                 case 1:
-                    Options.registerUser(in, studentList, professorList);
+                    System.out.println(Options.cadastroOk(input, studentList, professorList));
+                    input.nextLine();
                     break;
                 case 2:
-                    Options.unregisterUser(in, studentList, professorList);
+                    Options.unregisterUser(input, studentList, professorList);
                     break;
                 case 3:
-                    Options.showUserList(studentList);
+                    UI.showUserList(studentList, input);
                     break;
                 case 4:
-                    Options.showUserList(professorList);
+                    UI.showUserList(professorList, input);
                     break;
-                case 5:
+                case 0:
                     exit = false;
                     break;
                 default:
-                    UserInteraction.invalidOption();
+                    UI.invalidOption(input);
             }
         } while (exit);
     }
 
-    public static void opcao2(Scanner in) {
+    public static void opcao2(Scanner input) {
         boolean exit = true;
         do {
-            switch (UserInteraction.mostrarGestaoTurmas(in)) {
+            switch (UI.mostrarGestaoTurmas(input)) {
                 case 1:
-                    System.out.println("2");
+                    
                     break;
                 case 2:
-                    System.out.println("3");
+                    
                     break;
                 case 3:
-                    System.out.println("4");
+                    
                     break;
-                case 4:
+                case 0:
                     exit = false;
                     break;
                 default:
-                    UserInteraction.invalidOption();
+                    UI.invalidOption(input);
             }
         } while (exit);
     }
 
-    public static void opcao3(Scanner in) {
+    public static void opcao3(Scanner input) {
         boolean exit = true;
         do {
-            switch (UserInteraction.mostrarGestaoNotas(in)) {
+            switch (UI.mostrarGestaoNotas(input)) {
                 case 1:
-                    System.out.println("2");
+                    
                     break;
                 case 2:
-                    System.out.println("3");
+                    
                     break;
                 case 3:
-                    System.out.println("4");
+                   
                     break;
-                case 4:
+                case 0:
                     exit = false;
                     break;
                 default:
-                    UserInteraction.invalidOption();
+                    UI.invalidOption(input);
             }
         } while (exit);
     }
 
-    public static void opcao4(Scanner in) {
+    public static void opcao4(Scanner input) {
     }
 }

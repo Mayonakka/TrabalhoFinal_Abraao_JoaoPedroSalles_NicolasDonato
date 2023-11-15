@@ -7,6 +7,7 @@ public class StudentList implements Lists {
 
     private LinkedList<Student> studentList = new LinkedList();
 
+    
     public LinkedList<Student> getStudentList() {
         return studentList;
     }
@@ -15,18 +16,37 @@ public class StudentList implements Lists {
     }
 
 
-    public void createUser(String name, String cpf) {
-        int nextStudentCode = (studentList.isEmpty()) ? 10001 : studentList.getLast().getStudentCode() + 1;
-        studentList.add(new Student(name, cpf, nextStudentCode));
+    public boolean createUser(String name, String cpf) {
+        try {
+            int nextStudentCode = (studentList.isEmpty()) ? 10001 : studentList.getLast().getStudentCode() + 1;
+            studentList.add(new Student(name, cpf, nextStudentCode));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
-    public void removeUser(int codeStudent) {
-        studentList.removeIf(a -> a.getStudentCode() == codeStudent);
+    public boolean removeUser(int codeStudent) {
+        try {
+            studentList.removeIf(a -> a.getStudentCode() == codeStudent);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
+
+    //public void createUser(String name, String cpf) {
+        //int nextStudentCode = (studentList.isEmpty()) ? 10001 : studentList.getLast().getStudentCode() + 1;
+        //studentList.add(new Student(name, cpf, nextStudentCode));
+    //}
+
+    //public void removeUser(int codeStudent) {
+        //studentList.removeIf(a -> a.getStudentCode() == codeStudent);
+    //}
 
     public String getUserList(int index) throws Exception {
         if(studentList.isEmpty())
-            throw new Exception("Lista vazia");
+            throw new Exception("\nLista vazia");
         else if (index == studentList.size() -1)
             return studentList.getLast().toString();
         else 

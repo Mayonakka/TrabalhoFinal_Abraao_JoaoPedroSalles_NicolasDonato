@@ -1,7 +1,6 @@
 package userinterface;
 
 import java.util.Scanner;
-
 import lists.StudentList;
 import lists.ProfessorList;
 import lists.ListaTurma;
@@ -10,9 +9,9 @@ public class App {
     public static void main(String[] args) {
         
         ProfessorList professorList = new ProfessorList();
-                StudentList studentList = new StudentList();
-                ListaTurma listaTurma = new ListaTurma();
-                        Scanner input = new Scanner(System.in);
+            StudentList studentList = new StudentList();
+              ListaTurma listaTurma = new ListaTurma();
+                      Scanner input = new Scanner(System.in);
 
         boolean exit = true;
         do{
@@ -29,12 +28,12 @@ public class App {
                 case 4:
                     Menu.opcao4(input);
                     break;
-                case 5:
+                case 0:
                     exit = false;
                     break;
             
                 default:
-                    UserInteraction.invalidOption();
+                    UI.invalidOption(input);
             }
 
         }while(exit);

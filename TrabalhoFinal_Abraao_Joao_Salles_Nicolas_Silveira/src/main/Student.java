@@ -15,15 +15,12 @@ public class Student extends Person {
     public int getStudentCode() {
         return studentCode;
     }
-
     public ArrayList<Course> getCourse() {
         return course;
     }
-
     public void setStudentCode(int studentCode) {
         this.studentCode = studentCode;
     }
-
     public void setCourse(ArrayList<Course> course) {
         this.course = course;
     }

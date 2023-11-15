@@ -1,44 +1,38 @@
 package userinterface;
 
 import lists.StudentList;
-
-import java.util.Scanner;
-
-import lists.Lists;
 import lists.ProfessorList;
+import java.util.Scanner;
+import lists.Lists;
 
 public class Options {
 
-    static Lists checksTypeUser(int op, Lists studentList, Lists professorList) throws Exception{
+    static Lists checksTypeUser(int op, Lists sl, Lists pl) throws Exception{
         if(op == 1)
-            return studentList; 
+            return sl; 
         else if (op == 2)
-            return professorList;
+            return pl;
         else
-            throw new Exception("Opcao inválida");
+            throw new Exception("Opcao escolhida inválida");
     }
     
-    static void registerUser(Scanner in, StudentList studentList, ProfessorList professorList) {
+    static boolean registerUser(Scanner input, StudentList sl, ProfessorList pl) {
         try {
-            checksTypeUser(UserInteraction.professorOrStudent(in), studentList, 
-            professorList).createUser(UserInteraction.typeName(in), UserInteraction.typeCPF(in));
+            Lists list = checksTypeUser(UI.professorOrStudent(input), sl, pl);
+            return list.createUser(UI.typeName(input), UI.typeCPF(input));
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return false;
         }
     }
 
-    static void unregisterUser(Scanner in, StudentList studentList, ProfessorList professorList) {
-        try {
-            checksTypeUser(UserInteraction.professorOrStudent(in), studentList, 
-            professorList).removeUser(UserInteraction.typeCodeUser(in));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    static String cadastroOk(Scanner input, StudentList sl, ProfessorList pl){
+        return (registerUser(input, sl, pl))? "OK":"NOK";
     }
 
-    static void showUserList(Lists lists){
+    static void unregisterUser(Scanner input, StudentList sl, ProfessorList pl) {
         try {
-            System.out.println(lists.getUserList(0));
+            checksTypeUser(UI.professorOrStudent(input), sl, pl).removeUser(UI.typeCodeUser(input));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
