@@ -15,11 +15,11 @@ public class Menu {
         do {
             switch (UI.mostrarGestaoUsuarios(input)) {
                 case 1:
-                    System.out.println(Options.register(input, studentList, professorList));
+                    System.out.println(Options.checkRegister(Options.registerUser(input, studentList, professorList)));
                     input.nextLine();
                     break;
                 case 2:
-                    System.out.println(Options.unregister(input, studentList, professorList));
+                    System.out.println(Options.checkRegister(Options.unregisterUser(input, studentList, professorList)));
                     input.nextLine();
                     break;
                 case 3:
@@ -49,6 +49,8 @@ public class Menu {
                     break;
                 case 3:
                     
+                    break;
+                case 4:
                     break;
                 case 0:
                     exit = false;

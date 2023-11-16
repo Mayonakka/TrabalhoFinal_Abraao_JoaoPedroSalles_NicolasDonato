@@ -3,6 +3,8 @@ package userinterface;
 import lists.StudentList;
 import lists.ProfessorList;
 import java.util.Scanner;
+
+import lists.ClassroomList;
 import lists.Lists;
 
 public class Options {
@@ -23,7 +25,7 @@ public class Options {
             return false;
         }
     }
-
+    
     static boolean unregisterUser(Scanner input, StudentList sl, ProfessorList pl) {
         try {
             return checksTypeUser(UI.professorOrStudent(input), sl, pl).removeUser(UI.typeCodeUser(input));
@@ -33,11 +35,11 @@ public class Options {
         }
     }
 
-    static String register(Scanner input, StudentList sl, ProfessorList pl){
-        return ((registerUser(input, sl, pl))? UI.GREEN + "Cadastrado com sucesso" + UI.RESET:"Tente novamente");
+    static String checkRegister(boolean check){
+        return ((check)? UI.GREEN + "Excluido com sucesso" + UI.RESET:"Tente novamente");
     }
 
-    static String unregister(Scanner input, StudentList sl, ProfessorList pl){
-        return ((unregisterUser(input, sl, pl))? UI.GREEN + "Excluido com sucesso" + UI.RESET:"Tente novamente");
+    static boolean registerClass(Scanner input, ClassroomList classroomList){
+        return classroomList.createClass(UI.typeClassCourse(input), UI.typeClassSemester(input), UI.typeClassSize(input));
     }
 }

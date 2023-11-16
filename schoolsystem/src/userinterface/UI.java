@@ -35,7 +35,8 @@ public class UI {
         System.out.println(CLEAR + "GESTAO DE TURMAS"
                         +  "\n1) Adicionar nova Turma"
                         +  "\n2) Editar Turma"
-                        +  "\n3) Ver Turmas"
+                        +  "\n3) Ver Lista de Turmas"
+                        +  "\n4) Ver Turma"
                         +  "\n0) Voltar");
         return Integer.parseInt(input.nextLine());
     }
@@ -72,6 +73,24 @@ public class UI {
     static int typeCodeUser(Scanner input){
         System.out.println("\nDigite a MATRICULA ou o CODIGO de FUNCIONARIO: ");
         return Integer.parseInt(input.nextLine());
+    }
+
+    static int typeClassSize(Scanner input){
+        System.out.println("\nDigite o tamanho limite da TURMA: ");
+        return Integer.parseInt(input.nextLine());
+    }
+
+    static String typeClassCourse(Scanner input){
+        System.out.println("\nDigite a disciplina da TURMA: ");
+        return input.nextLine();
+    }
+
+    static String typeClassSemester(Scanner input){
+        System.out.println("\nDigite o semestre da TURMA: ");
+        String semesterYear = input.nextLine();
+        System.out.println("\nDigite o ano da TURMA: ");
+        semesterYear += "/" + input.nextLine();
+        return semesterYear;
     }
 
     static void showUserList(Lists lists, Scanner input){

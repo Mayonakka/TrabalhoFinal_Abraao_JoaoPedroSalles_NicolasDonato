@@ -6,7 +6,7 @@ public class Professor extends Person{
     
     private int professorCode;
     private int limit = 2;
-    private Turma[] turmas = new Turma[limit];
+    private Classroom[] turmas = new Classroom[limit];
 
     
     public Professor(String name, String cpf, int professorCode) {
@@ -20,7 +20,7 @@ public class Professor extends Person{
     public int getLimit() {
         return limit;
     }
-    public Turma[] getTurmas() {
+    public Classroom[] getTurmas() {
         return turmas;
     }
     public void setProfessorCode(int professorCode) {
@@ -29,7 +29,7 @@ public class Professor extends Person{
     public void setLimit(int limit) {
         this.limit = limit;
     }
-    public void setTurmas(Turma[] turmas) {
+    public void setTurmas(Classroom[] turmas) {
         this.turmas = turmas;
     }
 
