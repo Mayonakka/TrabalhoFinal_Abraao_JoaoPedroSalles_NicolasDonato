@@ -27,12 +27,12 @@ public class ClassroomList{
         return classroomList.removeIf(p -> p.getClassroomCode() == classroomCode); 
     }
 
-    public String getUserList(int index) throws Exception{
+    public String getClassroomList(int index) throws Exception{
         if(classroomList.isEmpty())
             throw new Exception(UI.RED + "\nLista vazia" + UI.RESET);
         else if (index == classroomList.size() -1)
             return classroomList.getLast().toString();
         else 
-            return classroomList.get(index).toString() + "\n" + getUserList(++index);
+            return classroomList.get(index).toString() + "\n" + getClassroomList(++index);
     }
 }

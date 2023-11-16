@@ -10,7 +10,7 @@ public class App {
         
         ProfessorList professorList = new ProfessorList();
             StudentList studentList = new StudentList();
-              ClassroomList listaTurma = new ClassroomList();
+              ClassroomList classroomList = new ClassroomList();
                       Scanner input = new Scanner(System.in);
 
         boolean exit = true;
@@ -20,7 +20,7 @@ public class App {
                     Menu.opcao1(input, studentList, professorList);
                     break;
                 case 2:
-                    Menu.opcao2(input);
+                    Menu.opcao2(input, classroomList);
                     break;
                 case 3:
                     Menu.opcao3(input);

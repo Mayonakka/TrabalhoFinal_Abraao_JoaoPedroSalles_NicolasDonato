@@ -103,4 +103,9 @@ public class UI {
             input.nextLine();
         }
     }
+
+    static String checkRegister(boolean check){
+        return ((check)? UI.GREEN + "Concluido com sucesso" + UI.RESET:"Tente novamente");
+    }
+
 }

@@ -35,10 +35,6 @@ public class Options {
         }
     }
 
-    static String checkRegister(boolean check){
-        return ((check)? UI.GREEN + "Excluido com sucesso" + UI.RESET:"Tente novamente");
-    }
-
     static boolean registerClass(Scanner input, ClassroomList classroomList){
         return classroomList.createClass(UI.typeClassCourse(input), UI.typeClassSemester(input), UI.typeClassSize(input));
     }
