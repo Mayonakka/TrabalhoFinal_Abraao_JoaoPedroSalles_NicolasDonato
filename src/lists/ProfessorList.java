@@ -8,13 +8,12 @@ import userinterface.UI;
 
 public class ProfessorList implements UserLists{
 
-    private LinkedList<Person> professorList = new LinkedList();
+    private LinkedList<Professor> professorList = new LinkedList();
 
-    
-    public LinkedList<Person> getProfessorList() {
+    public LinkedList<Professor> getProfessorList() {
         return professorList;
     }
-    public void setProfessorList(LinkedList<Person> professorList) {
+    public void setProfessorList(LinkedList<Professor> professorList) {
         this.professorList = professorList;
     }
 

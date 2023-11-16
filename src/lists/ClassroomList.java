@@ -2,6 +2,7 @@ package lists;
 
 import java.util.LinkedList;
 import main.Classroom;
+import main.Student;
 import userinterface.UI;
 
 public class ClassroomList implements Lists{
@@ -26,13 +27,17 @@ public class ClassroomList implements Lists{
     }
 
     @Override
-    public String toStringList(int index) throws Exception{
+    public String toStringList(int i) throws Exception{
         if(classroomList.isEmpty())
             throw new Exception(UI.RED + "\nLista vazia" + UI.RESET);
-        else if (index == classroomList.size() -1)
+        else if (i == classroomList.size() -1)
             return classroomList.getLast().toString();
         else 
-            return classroomList.get(index).toString() + "\n" + toStringList(++index);
+            return classroomList.get(i).toString() + "\n" + toStringList(++i);
+    }
+
+    public String toStringList(){
+        return searchList(codeClass).getProfessor() + searchList(codeClass).toStringStudents();
     }
 
     public Classroom searchList(int code) {
@@ -44,7 +49,7 @@ public class ClassroomList implements Lists{
         return null;
     }
 
-    public boolean addUserInClassroom(UserLists lists, int codeUser, int codeClass){
-        return searchList(codeClass).addUser(lists.searchList(codeUser));
+    public boolean addUserInClassroom(StudentList sList, int codeUser, int codeClass){
+        return searchList(codeClass).addUser((Student) sList.searchList(codeUser));
     }
 }

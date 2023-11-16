@@ -9,7 +9,7 @@ public class Classroom {
     private String semesterYear;
     private Professor professor;
     private int classroomSize;
-    private ArrayList<Person> students = new ArrayList();
+    private ArrayList<Student> students = new ArrayList();
 
     public Classroom(String course, String semesterYear, int classroomSize, int classroomCode) {
         this.course = course;
@@ -33,7 +33,7 @@ public class Classroom {
     public int getClassroomSize() {
         return classroomSize;
     }
-    public ArrayList<Person> getStudents() {
+    public ArrayList<Student> getStudents() {
         return students;
     }
     public void setCourse(String course) {
@@ -52,16 +52,25 @@ public class Classroom {
         this.classroomSize = classroomSize;
     }
 
-    public boolean addUser(Person user) {
-        return this.students.add(user);
+    public boolean addUser(Student student) {
+        return this.students.add(student);
     }
-    public boolean removeUser(Person user) {
-        return this.students.remove(user);
+    public boolean removeUser(Student student) {
+        return this.students.remove(student);
     }
+
+    public String toStringStudents() {
+        StringBuilder stringBuilder = new StringBuilder();
+    
+        for (Student student : students) {
+            stringBuilder.append(student.toString()).append("\n");
+        }
+        return stringBuilder.toString();
+    }
+
 
     @Override
     public String toString() {
         return classroomCode + " | " + semesterYear + " | " + course;
     }
-
 }

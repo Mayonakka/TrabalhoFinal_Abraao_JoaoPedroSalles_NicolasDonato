@@ -16,11 +16,11 @@ public class Menu {
         do {
         switch (UI.showOption1(input)) {
             case 1:
-                System.out.println(UI.checkRegister(Options.registerUser(input, sList, pList)));
+                System.out.println(UI.check(Options.registerUser(input, sList, pList)));
                 input.nextLine();
                 break;
             case 2:
-                System.out.println(UI.checkRegister(Options.unregisterUser(input, sList, pList)));
+                System.out.println(UI.check(Options.unregisterUser(input, sList, pList)));
                 input.nextLine();
                 break;
             case 3:
@@ -43,7 +43,7 @@ public class Menu {
         do {
         switch (UI.showOption2(input)) {
             case 1:
-                System.out.println(UI.checkRegister(Options.registerClass(input, crList)));
+                System.out.println(UI.check(Options.registerClass(input, crList)));
                 input.nextLine();
                 break;
             case 2:
@@ -68,7 +68,7 @@ public class Menu {
         do{
         switch (UI.showOption2_2(input)) {
             case 1:
-                System.out.println(UI.checkRegister(Options.addUserInClassroom(input, sList, pList, crList)));
+                System.out.println(UI.check(Options.addUserInClassroom(input, sList, pList, crList)));
                 input.nextLine();
                 break;
             case 2:

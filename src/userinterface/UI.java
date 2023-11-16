@@ -120,7 +120,7 @@ public class UI {
         }
     }
 
-    static String checkRegister(boolean check){
+    static String check(boolean check){
         return ((check)? UI.GREEN + "Concluido com sucesso" + UI.RESET:"Tente novamente");
     }
 

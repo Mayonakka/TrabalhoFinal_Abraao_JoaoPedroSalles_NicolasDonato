@@ -8,13 +8,13 @@ import userinterface.UI;
 
 public class StudentList implements UserLists {
 
-    private LinkedList<Person> studentList = new LinkedList();
+    private LinkedList<Student> studentList = new LinkedList();
 
     
-    public LinkedList<Person> getStudenttList() {
+    public LinkedList<Student> getStudenttList() {
         return studentList;
     }
-    public void setStudentList(LinkedList<Person> studentList) {
+    public void setStudentList(LinkedList<Student> studentList) {
         this.studentList = studentList;
     }
 
