@@ -8,13 +8,13 @@ import lists.ProfessorList;
 public class Menu {
 
     public static int menuPrincipal(Scanner input) {
-        return UI.mostrarMenuPrincipal(input);
+        return UI.showMainMenu(input);
     }
 
     public static void opcao1(Scanner input, StudentList studentList, ProfessorList professorList) {
         boolean exit = true;
         do {
-            switch (UI.mostrarGestaoUsuarios(input)) {
+            switch (UI.showOption1(input)) {
                 case 1:
                     System.out.println(UI.checkRegister(Options.registerUser(input, studentList, professorList)));
                     input.nextLine();
@@ -41,15 +41,16 @@ public class Menu {
     public static void opcao2(Scanner input, ClassroomList classroomList) {
         boolean exit = true;
         do {
-            switch (UI.mostrarGestaoTurmas(input)) {
+            switch (UI.showOption2(input)) {
                 case 1:
                     System.out.println(UI.checkRegister(Options.registerClass(input, classroomList)));
+                    input.nextLine();
                     break;
                 case 2:
-
+                    opcao2_2(input);
                     break;
                 case 3:
-
+                    UI.showUserList(classroomList, input);;
                     break;
                 case 4:
                     break;
@@ -62,10 +63,32 @@ public class Menu {
         } while (exit);
     }
 
+    public static void opcao2_2(Scanner input) {
+        boolean exit = true;
+        do{
+            switch (UI.showOption2_2(input)) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    
+                    break;
+                case 0:
+                    exit = false;
+                    break;
+                default:
+                    UI.invalidOption(input);
+            }
+        }while(exit);
+    }
+
     public static void opcao3(Scanner input) {
         boolean exit = true;
         do {
-            switch (UI.mostrarGestaoNotas(input)) {
+            switch (UI.showOption3(input)) {
                 case 1:
 
                     break;

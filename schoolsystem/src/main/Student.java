@@ -4,29 +4,24 @@ import java.util.ArrayList;
 
 public class Student extends Person {
 
-    private int studentCode;
     private ArrayList<Course> course = new ArrayList();
 
-    public Student(String name, String cpf, int studentCode) {
-        super(name, cpf);
-        this.studentCode = studentCode;
+    
+
+    public Student(String name, String cpf, int code) {
+        super(name, cpf, code);
     }
 
-    public int getStudentCode() {
-        return studentCode;
-    }
     public ArrayList<Course> getCourse() {
         return course;
-    }
-    public void setStudentCode(int studentCode) {
-        this.studentCode = studentCode;
     }
     public void setCourse(ArrayList<Course> course) {
         this.course = course;
     }
 
+
     @Override
     public String toString() {
-        return studentCode + "  |  " + getName();
+        return getCode() + "  |  " + getName() ;
     }
 }

@@ -8,7 +8,7 @@ public class Course {
     private float gradeB;
     private float gradeC;
     
-    public Course(String nome, Status status, float gradeA, float gradeB, float gradeC) {
+    public Course(String name, Status status, float gradeA, float gradeB, float gradeC) {
         this.name = name;
         this.status = status;
         this.gradeA = gradeA;

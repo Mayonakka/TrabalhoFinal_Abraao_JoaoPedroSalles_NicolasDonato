@@ -5,11 +5,11 @@ import lists.ProfessorList;
 import java.util.Scanner;
 
 import lists.ClassroomList;
-import lists.Lists;
+import lists.UserLists;
 
 public class Options {
 
-    static Lists checksTypeUser(int op, Lists sl, Lists pl) throws Exception{
+    static UserLists checksTypeUser(int op, UserLists sl, UserLists pl) throws Exception{
         if(op==1 || op==2){
             return (op==1)? sl : pl;
         } else {

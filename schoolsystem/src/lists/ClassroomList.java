@@ -2,12 +2,11 @@ package lists;
 
 import java.util.LinkedList;
 import main.Classroom;
-import main.Course;
-import main.Professor;
+import main.Person;
 import userinterface.UI;
 
-public class ClassroomList{
- 
+public class ClassroomList implements Lists{
+
     private LinkedList<Classroom> classroomList = new LinkedList();
 
     
@@ -27,12 +26,25 @@ public class ClassroomList{
         return classroomList.removeIf(p -> p.getClassroomCode() == classroomCode); 
     }
 
-    public String getClassroomList(int index) throws Exception{
+    public String getList(int index) throws Exception{
         if(classroomList.isEmpty())
             throw new Exception(UI.RED + "\nLista vazia" + UI.RESET);
         else if (index == classroomList.size() -1)
             return classroomList.getLast().toString();
         else 
-            return classroomList.get(index).toString() + "\n" + getClassroomList(++index);
+            return classroomList.get(index).toString() + "\n" + getList(++index);
+    }
+
+    public Classroom searchClassroom(int code) {
+        for (Classroom classroom : classroomList) {
+            if (classroom.getClassroomCode() == code){
+                return classroom;
+            }
+        }
+        return null;
+    }
+
+    public boolean addUser(UserLists lists, int codeUser, int codeClass){
+        return searchClassroom(codeClass).addUser(lists.searchList(codeUser));
     }
 }

@@ -9,7 +9,7 @@ public class Classroom {
     private String semesterYear;
     private Professor professor;
     private int classroomSize;
-    private ArrayList<Student> students = new ArrayList();
+    private ArrayList<Person> students = new ArrayList();
 
     public Classroom(String course, String semesterYear, int classroomSize, int classroomCode) {
         this.course = course;
@@ -38,7 +38,7 @@ public class Classroom {
         return classroomSize;
     }
 
-    public ArrayList<Student> getStudents() {
+    public ArrayList<Person> getStudents() {
         return students;
     }
 
@@ -62,8 +62,12 @@ public class Classroom {
         this.classroomSize = classroomSize;
     }
 
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
+    public boolean addUser(Person user) {
+        return this.students.add(user);
+    }
+
+    public boolean removeUser(Person user) {
+        return this.students.remove(user);
     }
 
     @Override

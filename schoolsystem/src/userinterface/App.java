@@ -10,7 +10,7 @@ public class App {
         
         ProfessorList professorList = new ProfessorList();
             StudentList studentList = new StudentList();
-              ClassroomList classroomList = new ClassroomList();
+        ClassroomList classroomList = new ClassroomList();
                       Scanner input = new Scanner(System.in);
 
         boolean exit = true;

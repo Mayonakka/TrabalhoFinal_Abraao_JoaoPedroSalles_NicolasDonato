@@ -1,7 +1,6 @@
 package userinterface;
 
 import java.util.Scanner;
-
 import lists.Lists;
 
 public class UI {
@@ -11,7 +10,8 @@ public class UI {
     public final static String GREEN = "\u001B[32m";
       public final static String RED = "\u001B[31m";
 
-    static int mostrarMenuPrincipal(Scanner input){
+    // Menus
+    static int showMainMenu(Scanner input){
         System.out.println(CLEAR + "MENU PRINCIPAL"
                         +  "\n1) Gestao de usuarios"
                         +  "\n2) Gestao de turmas"
@@ -21,7 +21,7 @@ public class UI {
         return Integer.parseInt(input.nextLine());
     }
 
-    static int mostrarGestaoUsuarios(Scanner input){
+    static int showOption1(Scanner input){
         System.out.println(CLEAR + "GESTAO DE USUARIOS"
                         +  "\n1) Adicionar novo usuario"
                         +  "\n2) Excluir usuario"
@@ -31,17 +31,26 @@ public class UI {
         return Integer.parseInt(input.nextLine());
     }
 
-    static int mostrarGestaoTurmas(Scanner input){
+    static int showOption2(Scanner input){
         System.out.println(CLEAR + "GESTAO DE TURMAS"
                         +  "\n1) Adicionar nova Turma"
-                        +  "\n2) Editar Turma"
+                        +  "\n2) Edição Turma"
                         +  "\n3) Ver Lista de Turmas"
                         +  "\n4) Ver Turma"
                         +  "\n0) Voltar");
         return Integer.parseInt(input.nextLine());
     }
+    
+    static int showOption2_2(Scanner input){
+        System.out.println(CLEAR + "EDIÇÃO DE TURMAS"
+                        +  "\n1) Adicionar usuario"
+                        +  "\n2) Remover usuario"
+                        +  "\n3) Excluir Turma"
+                        +  "\n0) Voltar");
+        return Integer.parseInt(input.nextLine());
+    }
 
-    static int mostrarGestaoNotas(Scanner input){
+    static int showOption3(Scanner input){
         System.out.println(CLEAR + "GESTAO DE NOTAS"
                         +  "\n1) Adicionar Notas"
                         +  "\n2) Adicionar Notas Recuperacao"
@@ -55,6 +64,9 @@ public class UI {
         input.nextLine();
     }
 
+
+
+    // Questions
     static int professorOrStudent(Scanner input){
         System.out.println("\n[1]ALUNO ou [2]PROFESSOR: ");
         return Integer.parseInt(input.nextLine());
@@ -93,9 +105,11 @@ public class UI {
         return semesterYear;
     }
 
+
+    // Shows
     static void showUserList(Lists lists, Scanner input){
         try {
-            System.out.println("\n" + lists.getUserList(0) + "\n");
+            System.out.println("\n" + lists.getList(0) + "\n");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
