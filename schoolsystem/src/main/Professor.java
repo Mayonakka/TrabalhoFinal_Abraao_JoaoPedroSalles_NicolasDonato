@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Arrays;
-
 public class Professor extends Person {
 
     private int limit = 2;
@@ -14,16 +12,15 @@ public class Professor extends Person {
     public int getLimit() {
         return limit;
     }
-    public void setLimit(int limit) {
-        this.limit = limit;
-    }
     public Classroom[] getTurmas() {
         return turmas;
+    }
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
     public void setTurmas(Classroom[] turmas) {
         this.turmas = turmas;
     }
-
 
     @Override
     public String toString() {

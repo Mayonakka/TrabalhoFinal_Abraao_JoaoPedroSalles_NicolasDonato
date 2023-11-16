@@ -64,8 +64,6 @@ public class UI {
         input.nextLine();
     }
 
-
-
     // Questions
     static int professorOrStudent(Scanner input){
         System.out.println("\n[1]ALUNO ou [2]PROFESSOR: ");
@@ -87,6 +85,11 @@ public class UI {
         return Integer.parseInt(input.nextLine());
     }
 
+    static int typeCodeClass(Scanner input){
+        System.out.println("\nDigite o numero da TURMA: ");
+        return Integer.parseInt(input.nextLine());
+    }
+
     static int typeClassSize(Scanner input){
         System.out.println("\nDigite o tamanho limite da TURMA: ");
         return Integer.parseInt(input.nextLine());
@@ -105,11 +108,10 @@ public class UI {
         return semesterYear;
     }
 
-
-    // Shows
-    static void showUserList(Lists lists, Scanner input){
+    // Shows and Checks
+    static void showList(Lists lists, Scanner input){
         try {
-            System.out.println("\n" + lists.getList(0) + "\n");
+            System.out.println("\n" + lists.toStringList(0) + "\n");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

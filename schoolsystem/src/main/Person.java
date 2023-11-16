@@ -15,17 +15,17 @@ public class Person {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
     public String getCpf() {
         return cpf;
+    }
+    public int getCode() {
+        return code;
     }
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    public int getCode() {
-        return code;
+    public void setName(String name) {
+        this.name = name;
     }
     public void setCode(int code) {
         this.code = code;

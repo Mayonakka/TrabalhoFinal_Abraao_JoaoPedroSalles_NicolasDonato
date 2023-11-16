@@ -8,19 +8,19 @@ import lists.ClassroomList;
 public class App {
     public static void main(String[] args) {
         
-        ProfessorList professorList = new ProfessorList();
-            StudentList studentList = new StudentList();
-        ClassroomList classroomList = new ClassroomList();
+        ProfessorList pList = new ProfessorList();
+            StudentList sList = new StudentList();
+        ClassroomList crList = new ClassroomList();
                       Scanner input = new Scanner(System.in);
 
         boolean exit = true;
         do{
             switch (Menu.menuPrincipal(input)) {
                 case 1:
-                    Menu.opcao1(input, studentList, professorList);
+                    Menu.opcao1(input, sList, pList);
                     break;
                 case 2:
-                    Menu.opcao2(input, classroomList);
+                    Menu.opcao2(input, sList, pList, crList);
                     break;
                 case 3:
                     Menu.opcao3(input);
@@ -31,11 +31,9 @@ public class App {
                 case 0:
                     exit = false;
                     break;
-            
                 default:
                     UI.invalidOption(input);
             }
-
         }while(exit);
     }
 }
