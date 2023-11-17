@@ -1,7 +1,6 @@
 package lists;
 
 import java.util.LinkedList;
-
 import main.Person;
 import main.Student;
 import userinterface.UI;

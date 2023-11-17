@@ -114,8 +114,7 @@ public class UI {
             System.out.println("\n" + lists.toStringList(0) + "\n");
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally{
+        } finally {
             input.nextLine();
         }
     }
@@ -123,5 +122,4 @@ public class UI {
     static String check(boolean check){
         return ((check)? UI.GREEN + "Concluido com sucesso" + UI.RESET:"Tente novamente");
     }
-
 }

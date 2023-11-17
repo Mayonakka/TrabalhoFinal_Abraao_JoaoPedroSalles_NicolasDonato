@@ -36,10 +36,6 @@ public class ClassroomList implements Lists{
             return classroomList.get(i).toString() + "\n" + toStringList(++i);
     }
 
-    public String toStringList(){
-        return searchList(codeClass).getProfessor() + searchList(codeClass).toStringStudents();
-    }
-
     public Classroom searchList(int code) {
         for (Classroom classroom : classroomList) {
             if (classroom.getClassroomCode() == code){

@@ -1,8 +1,9 @@
 package userinterface;
 
 import java.util.Scanner;
-import lists.UserLists;
 import lists.ClassroomList;
+import lists.ProfessorList;
+import lists.StudentList;
 
 
 public class Menu {
@@ -11,7 +12,7 @@ public class Menu {
         return UI.showMainMenu(input);
     }
 
-    public static void opcao1(Scanner input, UserLists sList, UserLists pList) {
+    public static void opcao1(Scanner input, StudentList sList, ProfessorList pList) {
         boolean exit = true;
         do {
         switch (UI.showOption1(input)) {
@@ -38,7 +39,7 @@ public class Menu {
         } while (exit);
     }
 
-    public static void opcao2(Scanner input, UserLists sList, UserLists pList, ClassroomList crList) {
+    public static void opcao2(Scanner input, StudentList sList, ProfessorList pList, ClassroomList crList) {
         boolean exit = true;
         do {
         switch (UI.showOption2(input)) {
@@ -50,7 +51,7 @@ public class Menu {
                 opcao2_2(input, sList, pList, crList);
                 break;
             case 3:
-                UI.showList(crList, input);
+                UI.showList(crList,input);
                 break;
             case 4:
                 break;
@@ -63,7 +64,7 @@ public class Menu {
         } while (exit);
     }
 
-    public static void opcao2_2(Scanner input, UserLists sList, UserLists pList, ClassroomList crList ) {
+    public static void opcao2_2(Scanner input, StudentList sList, ProfessorList pList, ClassroomList crList ) {
         boolean exit = true;
         do{
         switch (UI.showOption2_2(input)) {
