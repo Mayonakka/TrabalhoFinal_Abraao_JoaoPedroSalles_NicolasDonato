@@ -35,6 +35,7 @@ public class Menu {
                 break;
             default:
                 UI.invalidOption(input);
+                break;
             }
         } while (exit);
     }
@@ -60,6 +61,7 @@ public class Menu {
                 break;
             default:
                 UI.invalidOption(input);
+                break;
             }
         } while (exit);
     }
@@ -81,6 +83,7 @@ public class Menu {
                 break;
             default:
                 UI.invalidOption(input);
+                break;
             }
         }while(exit);
     }
@@ -100,6 +103,7 @@ public class Menu {
                 break;
             default:
                 UI.invalidOption(input);
+                break;
             }
         } while (exit);
     }

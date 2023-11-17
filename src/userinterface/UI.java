@@ -18,7 +18,7 @@ public class UI {
                         +  "\n3) Gestao de Notas"
                         +  "\n4) Historico do estudante"
                         +  "\n0) Sair");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
     }
 
     static int showOption1(Scanner input){
@@ -28,7 +28,7 @@ public class UI {
                         +  "\n3) Ver Alunos"
                         +  "\n4) Ver Professores"
                         +  "\n0) Voltar");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
     }
 
     static int showOption2(Scanner input){
@@ -38,7 +38,7 @@ public class UI {
                         +  "\n3) Ver Lista de Turmas"
                         +  "\n4) Ver Turma"
                         +  "\n0) Voltar");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
     }
     
     static int showOption2_2(Scanner input){
@@ -47,7 +47,7 @@ public class UI {
                         +  "\n2) Remover usuario"
                         +  "\n3) Excluir Turma"
                         +  "\n0) Voltar");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
     }
 
     static int showOption3(Scanner input){
@@ -56,7 +56,7 @@ public class UI {
                         +  "\n2) Adicionar Notas Recuperacao"
                         +  "\n3) Boletim Turma"
                         +  "\n0) Voltar");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
     }
 
     static void invalidOption(Scanner input) {
@@ -67,7 +67,13 @@ public class UI {
     // Questions
     static int professorOrStudent(Scanner input){
         System.out.println("\n[1]ALUNO ou [2]PROFESSOR: ");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
+    }
+    
+    static String typeName(Scanner input){
+        System.out.println("\nDigite o nome do USUARIO: ");
+        input.nextLine();
+        return input.nextLine();
     }
 
     static String typeCPF(Scanner input){
@@ -75,28 +81,25 @@ public class UI {
         return input.nextLine();
     }
 
-    static String typeName(Scanner input){
-        System.out.println("\nDigite o nome do USUARIO: ");
-        return input.nextLine();
-    }
 
     static int typeCodeUser(Scanner input){
         System.out.println("\nDigite a MATRICULA ou o CODIGO de FUNCIONARIO: ");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
     }
 
     static int typeCodeClass(Scanner input){
         System.out.println("\nDigite o numero da TURMA: ");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
     }
 
     static int typeClassSize(Scanner input){
         System.out.println("\nDigite o tamanho limite da TURMA: ");
-        return Integer.parseInt(input.nextLine());
+        return input.nextInt();
     }
 
     static String typeClassCourse(Scanner input){
         System.out.println("\nDigite a disciplina da TURMA: ");
+        input.nextLine();
         return input.nextLine();
     }
 
@@ -115,6 +118,7 @@ public class UI {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
+            input.nextLine();
             input.nextLine();
         }
     }

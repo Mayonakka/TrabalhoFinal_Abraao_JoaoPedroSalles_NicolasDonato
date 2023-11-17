@@ -15,7 +15,7 @@ public class App {
 
         boolean exit = true;
         do{
-            switch (Menu.menuPrincipal(input)) {
+            switch ((int) Menu.menuPrincipal(input)) {
                 case 1:
                     Menu.opcao1(input, sList, pList);
                     break;
@@ -33,6 +33,7 @@ public class App {
                     break;
                 default:
                     UI.invalidOption(input);
+                    break;
             }
         }while(exit);
     }
