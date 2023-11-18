@@ -55,6 +55,8 @@ public class Menu {
                 UI.showList(crList,input);
                 break;
             case 4:
+                UI.showClassroom(crList, input);
+                input.nextLine();
                 break;
             case 0:
                 exit = false;
@@ -75,8 +77,12 @@ public class Menu {
                 input.nextLine();
                 break;
             case 2:
+                System.out.println(UI.check(Options.removeUserInClassroom(input, sList, pList, crList)));
+                input.nextLine();
                 break;
             case 3:
+                System.out.println(UI.check(Options.unregisterClass(input, crList)));
+                input.nextLine();
                 break;
             case 0:
                 exit = false;

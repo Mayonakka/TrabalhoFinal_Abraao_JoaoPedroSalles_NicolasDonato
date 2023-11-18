@@ -35,12 +35,37 @@ public class Options {
     }
 
     static boolean registerClass(Scanner input, ClassroomList crList){
-        return crList.createClass(UI.typeClassCourse(input), UI.typeClassSemester(input), UI.typeClassSize(input));
+        return crList.createClass(UI.typeClassCourse(input), UI.typeClassSemester(input));
+    }
+
+    static boolean unregisterClass(Scanner input, ClassroomList crList){
+        return crList.removeClass(UI.typeCodeClass(input));
     }
 
     static boolean addUserInClassroom(Scanner input, StudentList sList, ProfessorList pList,  ClassroomList crList){
         try {
-            return crList.addUserInClassroom((StudentList) checksTypeUser(UI.professorOrStudent(input), sList, pList), UI.typeCodeUser(input), UI.typeCodeClass(input));
+            UserLists ul = checksTypeUser(UI.professorOrStudent(input), sList, pList);
+            int codeUser = UI.typeCodeUser(input);
+            int codeClass = UI.typeCodeClass(input);
+            if(ul instanceof StudentList)
+                return crList.addStudentInClassroom((StudentList) ul, codeUser, codeClass);
+            else
+                return crList.addProfessorInClassroom(pList, codeUser, codeClass);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    static boolean removeUserInClassroom(Scanner input, StudentList sList, ProfessorList pList,  ClassroomList crList){
+        try {
+            UserLists ul = checksTypeUser(UI.professorOrStudent(input), sList, pList);
+            int codeUser = UI.typeCodeUser(input);
+            int codeClass = UI.typeCodeClass(input);
+            if(ul instanceof StudentList)
+                return crList.removeStudentInClassroom((StudentList) ul, codeUser, codeClass);
+            else
+                return crList.removeProfessorInClassroom(pList, codeClass);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

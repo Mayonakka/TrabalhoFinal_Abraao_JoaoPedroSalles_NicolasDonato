@@ -17,9 +17,10 @@ public class StudentList implements UserLists {
         this.studentList = studentList;
     }
 
+    
     @Override
     public boolean createUser(String name, String cpf) {
-        int nextStudentCode = (studentList.isEmpty()) ? 10001 : studentList.getLast().getCode() + 1;
+        int nextStudentCode = (studentList.isEmpty()) ? 1001 : studentList.getLast().getCode() + 1;
         return studentList.add(new Student(name, cpf, nextStudentCode));
     }
 
@@ -27,17 +28,7 @@ public class StudentList implements UserLists {
     public boolean removeUser(int codeUser) {
         return studentList.removeIf(a -> a.getCode() == codeUser);
     }
-
-    @Override
-    public String toStringList(int index) throws Exception {
-        if(studentList.isEmpty())
-            throw new Exception(UI.RED + "\nLista vazia" + UI.RESET);
-        else if (index == studentList.size() -1)
-            return studentList.getLast().toString();
-        else 
-            return studentList.get(index).toString() + "\n" + toStringList(++index);
-    }
-
+    
     @Override
     public Person searchList(int code) {
         for (Person person : studentList) {
@@ -46,5 +37,15 @@ public class StudentList implements UserLists {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toStringList(int index) throws Exception {
+        if(studentList.isEmpty())
+            throw new Exception("\nLista vazia");
+        else if (index == studentList.size() -1)
+            return studentList.getLast().toString();
+        else 
+            return studentList.get(index).toString() + "\n" + toStringList(++index);
     }
 }

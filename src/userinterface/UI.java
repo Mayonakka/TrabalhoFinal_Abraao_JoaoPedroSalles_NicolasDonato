@@ -1,6 +1,8 @@
 package userinterface;
 
 import java.util.Scanner;
+
+import lists.ClassroomList;
 import lists.Lists;
 
 public class UI {
@@ -18,7 +20,7 @@ public class UI {
                         +  "\n3) Gestao de Notas"
                         +  "\n4) Historico do estudante"
                         +  "\n0) Sair");
-        return input.nextInt();
+        return Integer.parseInt(input.nextLine());
     }
 
     static int showOption1(Scanner input){
@@ -28,7 +30,7 @@ public class UI {
                         +  "\n3) Ver Alunos"
                         +  "\n4) Ver Professores"
                         +  "\n0) Voltar");
-        return input.nextInt();
+        return Integer.parseInt(input.nextLine());
     }
 
     static int showOption2(Scanner input){
@@ -38,7 +40,7 @@ public class UI {
                         +  "\n3) Ver Lista de Turmas"
                         +  "\n4) Ver Turma"
                         +  "\n0) Voltar");
-        return input.nextInt();
+        return Integer.parseInt(input.nextLine());
     }
     
     static int showOption2_2(Scanner input){
@@ -47,7 +49,7 @@ public class UI {
                         +  "\n2) Remover usuario"
                         +  "\n3) Excluir Turma"
                         +  "\n0) Voltar");
-        return input.nextInt();
+        return Integer.parseInt(input.nextLine());
     }
 
     static int showOption3(Scanner input){
@@ -56,7 +58,7 @@ public class UI {
                         +  "\n2) Adicionar Notas Recuperacao"
                         +  "\n3) Boletim Turma"
                         +  "\n0) Voltar");
-        return input.nextInt();
+        return Integer.parseInt(input.nextLine());
     }
 
     static void invalidOption(Scanner input) {
@@ -67,12 +69,11 @@ public class UI {
     // Questions
     static int professorOrStudent(Scanner input){
         System.out.println("\n[1]ALUNO ou [2]PROFESSOR: ");
-        return input.nextInt();
+        return Integer.parseInt(input.nextLine());
     }
     
     static String typeName(Scanner input){
         System.out.println("\nDigite o nome do USUARIO: ");
-        input.nextLine();
         return input.nextLine();
     }
 
@@ -81,25 +82,18 @@ public class UI {
         return input.nextLine();
     }
 
-
     static int typeCodeUser(Scanner input){
         System.out.println("\nDigite a MATRICULA ou o CODIGO de FUNCIONARIO: ");
-        return input.nextInt();
+        return Integer.parseInt(input.nextLine());
     }
 
     static int typeCodeClass(Scanner input){
         System.out.println("\nDigite o numero da TURMA: ");
-        return input.nextInt();
-    }
-
-    static int typeClassSize(Scanner input){
-        System.out.println("\nDigite o tamanho limite da TURMA: ");
-        return input.nextInt();
+        return Integer.parseInt(input.nextLine());
     }
 
     static String typeClassCourse(Scanner input){
         System.out.println("\nDigite a disciplina da TURMA: ");
-        input.nextLine();
         return input.nextLine();
     }
 
@@ -116,10 +110,17 @@ public class UI {
         try {
             System.out.println("\n" + lists.toStringList(0) + "\n");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(RED + e.getMessage() + RESET);
         } finally {
             input.nextLine();
-            input.nextLine();
+        }
+    }
+
+    static void showClassroom(ClassroomList crList, Scanner input){
+        try {
+            System.out.println("\n" + crList.toStringClassroom(typeCodeClass(input)) + "\n");
+        } catch (Exception e) {
+            System.out.println(RED + e.getMessage() + RESET);
         }
     }
 

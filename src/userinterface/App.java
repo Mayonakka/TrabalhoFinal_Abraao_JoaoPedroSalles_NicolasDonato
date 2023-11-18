@@ -15,25 +15,25 @@ public class App {
 
         boolean exit = true;
         do{
-            switch ((int) Menu.menuPrincipal(input)) {
-                case 1:
-                    Menu.opcao1(input, sList, pList);
-                    break;
-                case 2:
-                    Menu.opcao2(input, sList, pList, crList);
-                    break;
-                case 3:
-                    Menu.opcao3(input);
-                    break;
-                case 4:
-                    Menu.opcao4(input);
-                    break;
-                case 0:
-                    exit = false;
-                    break;
-                default:
-                    UI.invalidOption(input);
-                    break;
+        switch ((int) Menu.menuPrincipal(input)) {
+            case 1:
+                Menu.opcao1(input, sList, pList);
+                break;
+            case 2:
+                Menu.opcao2(input, sList, pList, crList);
+                break;
+            case 3:
+                Menu.opcao3(input);
+                break;
+            case 4:
+                Menu.opcao4(input);
+                break;
+            case 0:
+                exit = false;
+                break;
+            default:
+                UI.invalidOption(input);
+                break;
             }
         }while(exit);
     }

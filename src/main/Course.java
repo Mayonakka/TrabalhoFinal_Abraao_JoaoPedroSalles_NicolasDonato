@@ -46,10 +46,4 @@ public class Course {
     public void setGradeC(float gradeC) {
         this.gradeC = gradeC;
     }
-
-    @Override
-    public String toString() {
-        return "Disciplina [nome=" + name + ", status=" + status + ", notaA=" + gradeA + ", notaB=" + gradeB + ", notaC="
-                + gradeC + "]";
-    }
 }

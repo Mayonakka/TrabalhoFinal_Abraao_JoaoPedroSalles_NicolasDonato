@@ -8,13 +8,11 @@ public class Classroom {
     private int classroomCode;
     private String semesterYear;
     private Professor professor;
-    private int classroomSize;
     private ArrayList<Student> students = new ArrayList();
 
-    public Classroom(String course, String semesterYear, int classroomSize, int classroomCode) {
+    public Classroom(String course, String semesterYear, int classroomCode) {
         this.course = course;
         this.semesterYear = semesterYear;
-        this.classroomSize = classroomSize;
         this.classroomCode = classroomCode;
     }
 
@@ -30,9 +28,6 @@ public class Classroom {
     public Professor getProfessor() {
         return professor;
     }
-    public int getClassroomSize() {
-        return classroomSize;
-    }
     public ArrayList<Student> getStudents() {
         return students;
     }
@@ -45,12 +40,11 @@ public class Classroom {
     public void setsemesterYear(String semesterYear) {
         this.semesterYear = semesterYear;
     }
-    public void setProfessor(Professor professor) {
+    public boolean setProfessor(Professor professor) {
         this.professor = professor;
+        return (this.professor == professor);
     }
-    public void setTamanhoTurma(int classroomSize) {
-        this.classroomSize = classroomSize;
-    }
+    
 
     public boolean addUser(Student student) {
         return this.students.add(student);
@@ -60,17 +54,15 @@ public class Classroom {
     }
 
     public String toStringStudents() {
-        StringBuilder stringBuilder = new StringBuilder();
-    
+        String s = toString();
         for (Student student : students) {
-            stringBuilder.append(student.toString()).append("\n");
+            s += student.toString() + "\n";
         }
-        return stringBuilder.toString();
+        return s.toString();
     }
-
 
     @Override
     public String toString() {
-        return classroomCode + " | " + semesterYear + " | " + course;
+        return classroomCode + " | " + semesterYear + " | Disciplina: " + course + " | Professor: " + professor.getName();
     }
 }
