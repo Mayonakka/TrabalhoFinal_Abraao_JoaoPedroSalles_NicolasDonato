@@ -8,11 +8,11 @@ import lists.StudentList;
 
 public class Menu {
 
-    public static int menuPrincipal(Scanner input) {
+    public static int mainMenu(Scanner input) {
         return UI.showMainMenu(input);
     }
 
-    public static void opcao1(Scanner input, StudentList sList, ProfessorList pList) {
+    public static void option1(Scanner input, StudentList sList, ProfessorList pList) {
         boolean exit = true;
         do {
         switch (UI.showOption1(input)) {
@@ -40,7 +40,7 @@ public class Menu {
         } while (exit);
     }
 
-    public static void opcao2(Scanner input, StudentList sList, ProfessorList pList, ClassroomList crList) {
+    public static void option2(Scanner input, StudentList sList, ProfessorList pList, ClassroomList crList) {
         boolean exit = true;
         do {
         switch (UI.showOption2(input)) {
@@ -49,7 +49,7 @@ public class Menu {
                 input.nextLine();
                 break;
             case 2:
-                opcao2_2(input, sList, pList, crList);
+                option2_2(input, sList, pList, crList);
                 break;
             case 3:
                 UI.showList(crList,input);
@@ -68,7 +68,7 @@ public class Menu {
         } while (exit);
     }
 
-    public static void opcao2_2(Scanner input, StudentList sList, ProfessorList pList, ClassroomList crList ) {
+    public static void option2_2(Scanner input, StudentList sList, ProfessorList pList, ClassroomList crList ) {
         boolean exit = true;
         do{
         switch (UI.showOption2_2(input)) {
@@ -94,7 +94,7 @@ public class Menu {
         }while(exit);
     }
 
-    public static void opcao3(Scanner input) {
+    public static void option3(Scanner input) {
         boolean exit = true;
         do {
         switch (UI.showOption3(input)) {
@@ -114,6 +114,14 @@ public class Menu {
         } while (exit);
     }
 
-    public static void opcao4(Scanner input) {
+    public static void option4(Scanner input, StudentList sList) {
+        try {
+            System.out.println(sList.showStudentRecord(UI.typeCodeUser(input)));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        finally{
+            input.nextLine();
+        }
     }
 }

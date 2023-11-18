@@ -23,22 +23,22 @@ public class StudentList implements UserLists {
         return studentList.add(new Student(name, cpf, nextStudentCode));
     }
 
-    @Override
-    public boolean deleteUser(int codeUser) {
-        return studentList.removeIf(a -> a.getCode() == codeUser);
+    public boolean deleteUser(int uCode) {
+        return studentList.removeIf(a -> a.getCode() == uCode);
     }
     
-    @Override
-    public Person searchInList(int codeUser) {
-        for (Person person : studentList) {
-            if (person.getCode() == codeUser){
+    public Person searchInList(int uCode) throws Exception{
+        for (Person person : studentList)
+            if (person.getCode() == uCode)
                 return person;
-            }
-        }
-        return null;
+        throw new Exception("Aluno nao encontrado");
     }
 
-    @Override
+    public String showStudentRecord(int uCode) throws Exception{
+        Student s = (Student) searchInList(uCode);
+        return s.studentRecord();
+    }
+
     public String toStringList(int i) throws Exception {
         if(studentList.isEmpty())
             throw new Exception("\nLista vazia");

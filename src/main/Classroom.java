@@ -48,9 +48,12 @@ public class Classroom {
         this.semesterYear = semesterYear;
     }
 
-    public boolean setProfessor(Professor professor) {
-        this.professor = professor;
-        return (this.professor == professor);
+    public boolean setProfessor(Professor professor) throws Exception{
+        if(professor == null){
+            this.professor = professor;
+            return (this.professor == professor);
+        }
+        throw new Exception("Turma ja possui professor");
     }
 
     public boolean addUser(Student student) {
@@ -71,7 +74,7 @@ public class Classroom {
 
     @Override
     public String toString() {
-        String nome = (professor == null) ? "-" : professor.getName();
-        return "Turma: " + classroomCode + " | " + semesterYear + " | Disciplina: " + course  + " | Professor " + nome;
+        String n = (professor == null) ? "-" : professor.getName();
+        return "Turma: " + classroomCode + " | " + semesterYear + " | Disciplina: " + course  + " | Professor " + n;
     }
 }

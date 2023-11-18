@@ -2,9 +2,10 @@ package lists;
 
 import java.util.LinkedList;
 import main.Classroom;
+import main.Course;
 import main.Professor;
 import main.Student;
-import userinterface.UI;
+
 
 public class ClassroomList implements Lists{
 
@@ -27,28 +28,30 @@ public class ClassroomList implements Lists{
         return classroomList.removeIf(p -> p.getClassroomCode() == classroomCode); 
     }
 
-    public Classroom searchList(int classroomCode) {
-        for (Classroom classroom : classroomList) {
-            if (classroom.getClassroomCode() == classroomCode){
+    public Classroom searchList(int classroomCode) throws Exception {
+        for (Classroom classroom : classroomList)
+            if (classroom.getClassroomCode() == classroomCode)
                 return classroom;
-            }
-        }
-        return null;
+        throw new Exception("Turma nao encontrada");
     }
 
-    public boolean addStudentInClassroom(StudentList sList, int uCode, int crCode){
-        return searchList(crCode).addUser((Student) sList.searchInList(uCode));
+    public boolean addStudentInClassroom(StudentList sList, int uCode, int crCode) throws Exception {
+        Student s = (Student) sList.searchInList(uCode);
+        Classroom cr = searchList(crCode);
+        return cr.addUser(s) && s.addNewCourse(new Course(cr.getCourse()));
     }
 
-    public boolean removeStudentInClassroom(StudentList sList, int uCode, int crCode){
-        return searchList(crCode).removeUser((Student) sList.searchInList(uCode));
+    public boolean removeStudentInClassroom(StudentList sList, int uCode, int crCode) throws Exception {
+        Student s = (Student) sList.searchInList(uCode);
+        Classroom cr = searchList(crCode);
+        return cr.removeUser(s) && s.removeCourse(cr.getCourse());
     }
 
-    public boolean addProfessorInClassroom(ProfessorList pList, int uCode, int crCode){
+    public boolean addProfessorInClassroom(ProfessorList pList, int uCode, int crCode) throws Exception {
         return searchList(crCode).setProfessor((Professor) pList.searchInList(uCode));
     }
 
-    public boolean removeProfessorInClassroom(ProfessorList pList, int crCode){
+    public boolean removeProfessorInClassroom(ProfessorList pList, int crCode) throws Exception {
         return searchList(crCode).setProfessor(null);
     }
 
@@ -63,8 +66,6 @@ public class ClassroomList implements Lists{
     }
     
     public String toStringClassroom(int crCode) throws Exception{
-        if(classroomList.contains(searchList(crCode)))
-            return searchList(crCode).toStringStudents();
-        throw new Exception("Turma nao encontrada");
+        return searchList(crCode).toStringStudents();
     }
 }

@@ -22,22 +22,17 @@ public class ProfessorList implements UserLists{
         return professorList.add(new Professor(name, cpf, nextProfessorCode));
     }
 
-    @Override
     public boolean deleteUser(int uCode) {
         return professorList.removeIf(p -> p.getCode() == uCode); 
     }
 
-    @Override
-    public Person searchInList(int uCode) {
-        for (Person person : professorList) {
-            if (person.getCode() == uCode){
+    public Person searchInList(int uCode) throws Exception{
+        for (Person person : professorList)
+            if (person.getCode() == uCode)
                 return person;
-            }
-        }
-        return null;
+        throw new Exception("Professor nao encontrado");
     }
 
-    @Override
     public String toStringList(int i) throws Exception{
         if(professorList.isEmpty())
             throw new Exception("\nLista vazia");

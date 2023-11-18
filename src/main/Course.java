@@ -8,12 +8,12 @@ public class Course {
     private float gradeB;
     private float gradeC;
     
-    public Course(String name, Status status, float gradeA, float gradeB, float gradeC) {
+    public Course(String name) {
         this.name = name;
-        this.status = status;
-        this.gradeA = gradeA;
-        this.gradeB = gradeB;
-        this.gradeC = gradeC;
+        this.status = Status.MATRICULADO;
+        this.gradeA = 0;
+        this.gradeB = 0;
+        this.gradeC = 0;
     }
 
     public String getName() {
@@ -46,4 +46,15 @@ public class Course {
     public void setGradeC(float gradeC) {
         this.gradeC = gradeC;
     }
+
+    public void courseStatus(float finalGrade){
+        this.status = finalGrade >= 6 ? Status.APROVADO : Status.REPROVADO;
+    }
+
+    @Override
+    public String toString() {
+        return "Disciplina: "+ name +" | "+ status +" | A: "+ gradeA +" | B: "+ gradeB +" | C: "+ gradeC +"\n";
+    }
+
+    
 }

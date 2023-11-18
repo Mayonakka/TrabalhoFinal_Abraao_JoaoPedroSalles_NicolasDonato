@@ -20,7 +20,7 @@ public class UI {
                         +  "\n3) Gestao de Notas"
                         +  "\n4) Historico do estudante"
                         +  "\n0) Sair");
-        return Integer.parseInt(input.nextLine());
+        return Integer.parseInt(input.next());
     }
 
     static int showOption1(Scanner input){
