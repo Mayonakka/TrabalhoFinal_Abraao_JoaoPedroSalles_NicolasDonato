@@ -3,7 +3,6 @@ package lists;
 import java.util.LinkedList;
 import main.Person;
 import main.Student;
-import userinterface.UI;
 
 public class StudentList implements UserLists {
 
@@ -25,14 +24,14 @@ public class StudentList implements UserLists {
     }
 
     @Override
-    public boolean removeUser(int codeUser) {
+    public boolean deleteUser(int codeUser) {
         return studentList.removeIf(a -> a.getCode() == codeUser);
     }
     
     @Override
-    public Person searchList(int code) {
+    public Person searchInList(int codeUser) {
         for (Person person : studentList) {
-            if (person.getCode() == code){
+            if (person.getCode() == codeUser){
                 return person;
             }
         }
@@ -40,12 +39,12 @@ public class StudentList implements UserLists {
     }
 
     @Override
-    public String toStringList(int index) throws Exception {
+    public String toStringList(int i) throws Exception {
         if(studentList.isEmpty())
             throw new Exception("\nLista vazia");
-        else if (index == studentList.size() -1)
+        else if (i == studentList.size() -1)
             return studentList.getLast().toString();
         else 
-            return studentList.get(index).toString() + "\n" + toStringList(++index);
+            return studentList.get(i).toString() + toStringList(++i);
     }
 }

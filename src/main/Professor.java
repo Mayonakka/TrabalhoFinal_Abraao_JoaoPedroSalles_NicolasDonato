@@ -24,6 +24,6 @@ public class Professor extends Person {
 
     @Override
     public String toString() {
-        return getCode() + "  |  " + getName();
+        return getCode() + "  |  " + getName() + "\n";
     }
 }

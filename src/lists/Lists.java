@@ -1,5 +1,5 @@
 package lists;
 
 public interface Lists {
-    public String toStringList(int index) throws Exception;
+    public String toStringList(int i) throws Exception;
 }

@@ -106,9 +106,9 @@ public class UI {
     }
 
     // Shows and Checks
-    static void showList(Lists lists, Scanner input){
+    static void showList(Lists l, Scanner input){
         try {
-            System.out.println("\n" + lists.toStringList(0) + "\n");
+            System.out.println("\n" + l.toStringList(0) + "\n");
         } catch (Exception e) {
             System.out.println(RED + e.getMessage() + RESET);
         } finally {

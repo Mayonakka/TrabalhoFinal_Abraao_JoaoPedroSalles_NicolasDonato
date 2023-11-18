@@ -27,7 +27,7 @@ public class Options {
     
     static boolean unregisterUser(Scanner input, StudentList sList, ProfessorList pList) {
         try {
-            return checksTypeUser(UI.professorOrStudent(input), sList, pList).removeUser(UI.typeCodeUser(input));
+            return checksTypeUser(UI.professorOrStudent(input), sList, pList).deleteUser(UI.typeCodeUser(input));
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
@@ -39,7 +39,7 @@ public class Options {
     }
 
     static boolean unregisterClass(Scanner input, ClassroomList crList){
-        return crList.removeClass(UI.typeCodeClass(input));
+        return crList.deleteClass(UI.typeCodeClass(input));
     }
 
     static boolean addUserInClassroom(Scanner input, StudentList sList, ProfessorList pList,  ClassroomList crList){
@@ -48,9 +48,8 @@ public class Options {
             int codeUser = UI.typeCodeUser(input);
             int codeClass = UI.typeCodeClass(input);
             if(ul instanceof StudentList)
-                return crList.addStudentInClassroom((StudentList) ul, codeUser, codeClass);
-            else
-                return crList.addProfessorInClassroom(pList, codeUser, codeClass);
+                return crList.addStudentInClassroom(sList, codeUser, codeClass);
+            return crList.addProfessorInClassroom(pList, codeUser, codeClass);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -63,9 +62,8 @@ public class Options {
             int codeUser = UI.typeCodeUser(input);
             int codeClass = UI.typeCodeClass(input);
             if(ul instanceof StudentList)
-                return crList.removeStudentInClassroom((StudentList) ul, codeUser, codeClass);
-            else
-                return crList.removeProfessorInClassroom(pList, codeClass);
+                return crList.removeStudentInClassroom(sList, codeUser, codeClass);
+            return crList.removeProfessorInClassroom(pList, codeClass);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

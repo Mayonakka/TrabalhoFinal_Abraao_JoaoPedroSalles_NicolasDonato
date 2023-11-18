@@ -3,7 +3,6 @@ package lists;
 import java.util.LinkedList;
 import main.Person;
 import main.Professor;
-import userinterface.UI;
 
 public class ProfessorList implements UserLists{
 
@@ -12,8 +11,8 @@ public class ProfessorList implements UserLists{
     public LinkedList<Professor> getProfessorList() {
         return professorList;
     }
-    public void setProfessorList(LinkedList<Professor> professorList) {
-        this.professorList = professorList;
+    public void setProfessorList(LinkedList<Professor> pList) {
+        this.professorList = pList;
     }
     
 
@@ -24,14 +23,14 @@ public class ProfessorList implements UserLists{
     }
 
     @Override
-    public boolean removeUser(int Code) {
-        return professorList.removeIf(p -> p.getCode() == Code); 
+    public boolean deleteUser(int uCode) {
+        return professorList.removeIf(p -> p.getCode() == uCode); 
     }
 
     @Override
-    public Person searchList(int code) {
+    public Person searchInList(int uCode) {
         for (Person person : professorList) {
-            if (person.getCode() == code){
+            if (person.getCode() == uCode){
                 return person;
             }
         }
@@ -39,12 +38,12 @@ public class ProfessorList implements UserLists{
     }
 
     @Override
-    public String toStringList(int index) throws Exception{
+    public String toStringList(int i) throws Exception{
         if(professorList.isEmpty())
             throw new Exception("\nLista vazia");
-        else if (index == professorList.size() -1)
+        else if (i == professorList.size() -1)
             return professorList.getLast().toString();
         else 
-            return professorList.get(index).toString() + "\n" + toStringList(++index);
+            return professorList.get(i).toString() + toStringList(++i);
     }
 }

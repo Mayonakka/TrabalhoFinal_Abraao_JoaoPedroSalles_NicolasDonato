@@ -23,33 +23,33 @@ public class ClassroomList implements Lists{
         return classroomList.add(new Classroom(course, semesterYear, nextClassroomCode));
     }
 
-    public boolean removeClass(int classroomCode) {
+    public boolean deleteClass(int classroomCode) {
         return classroomList.removeIf(p -> p.getClassroomCode() == classroomCode); 
     }
 
-    public Classroom searchList(int code) {
+    public Classroom searchList(int classroomCode) {
         for (Classroom classroom : classroomList) {
-            if (classroom.getClassroomCode() == code){
+            if (classroom.getClassroomCode() == classroomCode){
                 return classroom;
             }
         }
         return null;
     }
 
-    public boolean addStudentInClassroom(StudentList sList, int codeUser, int codeClass){
-        return searchList(codeClass).addUser((Student) sList.searchList(codeUser));
+    public boolean addStudentInClassroom(StudentList sList, int uCode, int crCode){
+        return searchList(crCode).addUser((Student) sList.searchInList(uCode));
     }
 
-    public boolean removeStudentInClassroom(StudentList sList, int codeUser, int codeClass){
-        return searchList(codeClass).removeUser((Student) sList.searchList(codeUser));
+    public boolean removeStudentInClassroom(StudentList sList, int uCode, int crCode){
+        return searchList(crCode).removeUser((Student) sList.searchInList(uCode));
     }
 
-    public boolean addProfessorInClassroom(ProfessorList pList, int codeUser, int codeClass){
-        return searchList(codeClass).setProfessor((Professor) pList.searchList(codeUser));
+    public boolean addProfessorInClassroom(ProfessorList pList, int uCode, int crCode){
+        return searchList(crCode).setProfessor((Professor) pList.searchInList(uCode));
     }
 
-    public boolean removeProfessorInClassroom(ProfessorList pList, int codeClass){
-        return searchList(codeClass).setProfessor(null);
+    public boolean removeProfessorInClassroom(ProfessorList pList, int crCode){
+        return searchList(crCode).setProfessor(null);
     }
 
     @Override
@@ -62,11 +62,9 @@ public class ClassroomList implements Lists{
             return classroomList.get(i).toString() + "\n" + toStringList(++i);
     }
     
-    public String toStringClassroom(int code) throws Exception{
-        if(!classroomList.contains(searchList(code)))
-            throw new Exception("Turma nao encontrada");
-        else {
-            return searchList(code).toString() + searchList(code).toStringStudents();
-        }
+    public String toStringClassroom(int crCode) throws Exception{
+        if(classroomList.contains(searchList(crCode)))
+            return searchList(crCode).toStringStudents();
+        throw new Exception("Turma nao encontrada");
     }
 }

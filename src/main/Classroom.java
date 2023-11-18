@@ -54,15 +54,16 @@ public class Classroom {
     }
 
     public String toStringStudents() {
-        String s = toString();
+        String s = toString() + "\n\n";
         for (Student student : students) {
-            s += student.toString() + "\n";
+            s += student.toString();
         }
         return s.toString();
     }
 
     @Override
     public String toString() {
-        return classroomCode + " | " + semesterYear + " | Disciplina: " + course + " | Professor: " + professor.getName();
+        return "Turma: " + classroomCode + " | " + semesterYear + " | Disciplina: " + course 
+             + " | Professor: " + professor == null? "-": professor.getName();
     }
 }
