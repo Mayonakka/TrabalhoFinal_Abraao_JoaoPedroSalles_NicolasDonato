@@ -19,36 +19,44 @@ public class Classroom {
     public String getCourse() {
         return course;
     }
+
     public int getClassroomCode() {
         return classroomCode;
     }
+
     public String getSemesterYear() {
         return semesterYear;
     }
+
     public Professor getProfessor() {
         return professor;
     }
+
     public ArrayList<Student> getStudents() {
         return students;
     }
+
     public void setCourse(String course) {
         this.course = course;
     }
+
     public void setclassroomCode(int classroomCode) {
         this.classroomCode = classroomCode;
     }
+
     public void setsemesterYear(String semesterYear) {
         this.semesterYear = semesterYear;
     }
+
     public boolean setProfessor(Professor professor) {
         this.professor = professor;
         return (this.professor == professor);
     }
-    
 
     public boolean addUser(Student student) {
         return this.students.add(student);
     }
+
     public boolean removeUser(Student student) {
         return this.students.remove(student);
     }
@@ -63,7 +71,7 @@ public class Classroom {
 
     @Override
     public String toString() {
-        return "Turma: " + classroomCode + " | " + semesterYear + " | Disciplina: " + course 
-             + " | Professor: " + professor == null? "-": professor.getName();
+        String nome = (professor == null) ? "-" : professor.getName();
+        return "Turma: " + classroomCode + " | " + semesterYear + " | Disciplina: " + course  + " | Professor " + nome;
     }
 }
