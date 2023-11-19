@@ -3,6 +3,7 @@ package lists;
 import java.util.LinkedList;
 import main.Person;
 import main.Student;
+import userinterface.UI;
 
 public class StudentList implements UserLists {
 
@@ -40,11 +41,17 @@ public class StudentList implements UserLists {
     }
 
     public String toStringList(int i) throws Exception {
-        if(studentList.isEmpty())
-            throw new Exception("\nLista vazia");
-        else if (i == studentList.size() -1)
-            return studentList.getLast().toString();
-        else 
-            return studentList.get(i).toString() + toStringList(++i);
+        String sb = UI.CLEAR
+        +"+-------------------------------------------+"
+		+"|              LISTA DE ALUNOS              |"
+		+"+-------------------------------------------+";
+
+        if (!studentList.isEmpty())
+            if(i == studentList.size() -1)
+                return sb + (studentList.getLast().toString());
+            else {
+                return sb += studentList.get(i).toString() + toStringList(++i);
+            }
+        throw new Exception("\nLista vazia");
     }
 }

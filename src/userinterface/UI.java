@@ -10,54 +10,79 @@ public class UI {
     public final static String CLEAR = "\u001B[H\u001B[2J";
     public final static String RESET = "\u001B[0m";
     public final static String GREEN = "\u001B[32m";
-      public final static String RED = "\u001B[31m";
+    public final static String RED = "\u001B[31m";
 
     // Menus
     static int showMainMenu(Scanner input){
-        System.out.println(CLEAR + "MENU PRINCIPAL"
-                        +  "\n1) Gestao de usuarios"
-                        +  "\n2) Gestao de turmas"
-                        +  "\n3) Gestao de Notas"
-                        +  "\n4) Historico do estudante"
-                        +  "\n0) Sair");
-        return Integer.parseInt(input.next());
+        System.out.println(CLEAR +"\n\n");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("|               MENU PRINCIPAL              |");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("| 1) - Gestao de usuarios                   |");
+		System.out.println("| 2) - Gestao de Turmas                     |");
+		System.out.println("| 3) - Gestao de Notas                      |");
+		System.out.println("| 4) - Historico do Aluno                   |");
+		System.out.println("| 0) - Sair                                 |");
+		System.out.println("+-------------------------------------------+");
+
+        return Integer.parseInt(input.nextLine());
     }
 
     static int showOption1(Scanner input){
-        System.out.println(CLEAR + "GESTAO DE USUARIOS"
-                        +  "\n1) Adicionar novo usuario"
-                        +  "\n2) Excluir usuario"
-                        +  "\n3) Ver Alunos"
-                        +  "\n4) Ver Professores"
-                        +  "\n0) Voltar");
+        System.out.println(CLEAR +"\n\n");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("|             GESTAO DE USUARIOS            |");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("| 1) - Adicionar Usuario                    |");
+		System.out.println("| 2) - Excluir Usuario                      |");
+		System.out.println("| 3) - Lista de alunos                      |");
+		System.out.println("| 4) - Lista de Professores                 |");
+		System.out.println("| 0) - Voltar                               |");
+		System.out.println("+-------------------------------------------+");
+
         return Integer.parseInt(input.nextLine());
     }
 
     static int showOption2(Scanner input){
-        System.out.println(CLEAR + "GESTAO DE TURMAS"
-                        +  "\n1) Adicionar nova Turma"
-                        +  "\n2) Edição Turma"
-                        +  "\n3) Ver Lista de Turmas"
-                        +  "\n4) Ver Turma"
-                        +  "\n0) Voltar");
+        System.out.println(CLEAR +"\n\n");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("|              GESTAO DE TURMAS             |");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("| 1) - Adicionar nova Turma                 |");
+		System.out.println("| 2) - Editar Turma                         |");
+		System.out.println("| 3) - Lista de Turma                       |");
+		System.out.println("| 4) - Consultar Turma                      |");
+		System.out.println("| 0) - Voltar                               |");
+		System.out.println("+-------------------------------------------+");
+
         return Integer.parseInt(input.nextLine());
     }
     
     static int showOption2_2(Scanner input){
-        System.out.println(CLEAR + "EDIÇÃO DE TURMAS"
-                        +  "\n1) Adicionar usuario"
-                        +  "\n2) Remover usuario"
-                        +  "\n3) Excluir Turma"
-                        +  "\n0) Voltar");
+        System.out.println(CLEAR +"\n\n");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("|              EDITAR TURMAS                |");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("| 1) - Adicionar Usuario                    |");
+		System.out.println("| 2) - Removar Usuario                      |");
+		System.out.println("| 3) - Excluir Usuario                      |");
+		System.out.println("| 0) - Voltar                               |");
+		System.out.println("+-------------------------------------------+");
+
         return Integer.parseInt(input.nextLine());
     }
 
     static int showOption3(Scanner input){
-        System.out.println(CLEAR + "GESTAO DE NOTAS"
-                        +  "\n1) Adicionar Notas"
-                        +  "\n2) Adicionar Notas Recuperacao"
-                        +  "\n3) Boletim Turma"
-                        +  "\n0) Voltar");
+        System.out.println(CLEAR +"\n\n");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("|             GESTAO DE NOTAS               |");
+		System.out.println("+-------------------------------------------+");
+		System.out.println("| 1) - Adicionar Notas                      |");
+		System.out.println("| 2) - Adicionar Notas de Recuperacao       |");
+		System.out.println("| 3) - Boletim de Turma                     |");
+		System.out.println("| 0) - Voltar                               |");
+		System.out.println("+-------------------------------------------+");
+
         return Integer.parseInt(input.nextLine());
     }
 
@@ -68,39 +93,39 @@ public class UI {
 
     // Questions
     static int professorOrStudent(Scanner input){
-        System.out.println("\n[1]ALUNO ou [2]PROFESSOR: ");
+        System.out.println("\n[1]ALUNO [2]PROFESSOR: ");
         return Integer.parseInt(input.nextLine());
     }
     
     static String typeName(Scanner input){
-        System.out.println("\nDigite o nome do USUARIO: ");
+        System.out.println("\nDigite o nome do Usuario: ");
         return input.nextLine();
     }
 
     static String typeCPF(Scanner input){
-        System.out.println("\nDigite o CPF do USUARIO: ");
+        System.out.println("\nDigite o CPF do Usuario: ");
         return input.nextLine();
     }
 
     static int typeCodeUser(Scanner input){
-        System.out.println("\nDigite a MATRICULA ou o CODIGO de FUNCIONARIO: ");
+        System.out.println("\nDigite o Codigo do Usuario: ");
         return Integer.parseInt(input.nextLine());
     }
 
     static int typeCodeClass(Scanner input){
-        System.out.println("\nDigite o numero da TURMA: ");
+        System.out.println("\nDigite o numero da Turma: ");
         return Integer.parseInt(input.nextLine());
     }
 
     static String typeClassCourse(Scanner input){
-        System.out.println("\nDigite a disciplina da TURMA: ");
+        System.out.println("\nDigite a disciplina da Turma: ");
         return input.nextLine();
     }
 
     static String typeClassSemester(Scanner input){
-        System.out.println("\nDigite o semestre da TURMA: ");
+        System.out.println("\nDigite o semestre da Turma: ");
         String semesterYear = input.nextLine();
-        System.out.println("\nDigite o ano da TURMA: ");
+        System.out.println("\nDigite o ano da Turma: ");
         semesterYear += "/" + input.nextLine();
         return semesterYear;
     }

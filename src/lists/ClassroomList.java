@@ -5,6 +5,7 @@ import main.Classroom;
 import main.Course;
 import main.Professor;
 import main.Student;
+import userinterface.UI;
 
 
 public class ClassroomList implements Lists{
@@ -56,13 +57,19 @@ public class ClassroomList implements Lists{
     }
 
     @Override
-    public String toStringList(int i) throws Exception{
-        if(classroomList.isEmpty())
-            throw new Exception("\nLista vazia");
-        else if (i == classroomList.size() -1)
-            return classroomList.getLast().toString();
-        else 
-            return classroomList.get(i).toString() + "\n" + toStringList(++i);
+    public String toStringList(int i) throws Exception {
+        String sb = UI.CLEAR
+        +"+-------------------------------------------+"
+		+"|              LISTA DE TURMAS              |"
+		+"+-------------------------------------------+";
+
+        if (!classroomList.isEmpty())
+            if(i == classroomList.size() -1)
+                return sb + (classroomList.getLast().toString());
+            else {
+                return sb += classroomList.get(i).toString() + toStringList(++i);
+            }
+        throw new Exception("\nLista vazia");
     }
     
     public String toStringClassroom(int crCode) throws Exception{

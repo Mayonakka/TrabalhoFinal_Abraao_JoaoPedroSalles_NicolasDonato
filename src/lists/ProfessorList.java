@@ -3,6 +3,7 @@ package lists;
 import java.util.LinkedList;
 import main.Person;
 import main.Professor;
+import userinterface.UI;
 
 public class ProfessorList implements UserLists{
 
@@ -33,12 +34,18 @@ public class ProfessorList implements UserLists{
         throw new Exception("Professor nao encontrado");
     }
 
-    public String toStringList(int i) throws Exception{
-        if(professorList.isEmpty())
-            throw new Exception("\nLista vazia");
-        else if (i == professorList.size() -1)
-            return professorList.getLast().toString();
-        else 
-            return professorList.get(i).toString() + toStringList(++i);
+    public String toStringList(int i) throws Exception {
+        String sb = UI.CLEAR
+        +"+-------------------------------------------+"
+		+"|            LISTA DE PROFESSORES           |"
+		+"+-------------------------------------------+";
+
+        if (!professorList.isEmpty())
+            if(i == professorList.size() -1)
+                return sb + (professorList.getLast().toString());
+            else {
+                return sb += professorList.get(i).toString() + toStringList(++i);
+            }
+        throw new Exception("\nLista vazia");
     }
 }

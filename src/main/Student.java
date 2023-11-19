@@ -17,6 +17,7 @@ public class Student extends Person {
         this.courses = course;
     }
 
+    
     public boolean addNewCourse(Course course) throws Exception{
         if(!courses.contains(course))
             return courses.add(course);
@@ -28,11 +29,11 @@ public class Student extends Person {
     }
 
     public String studentRecord(){
-        String sr = toString() +"\n";
+        String s = toString() + "\n";
         for (Course course : courses) {
-            sr += course.toString();
+            s += course.toString() + "\n";
         }
-        return sr;
+        return s;
     }
 
     @Override

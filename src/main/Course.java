@@ -47,6 +47,7 @@ public class Course {
         this.gradeC = gradeC;
     }
 
+    
     public void courseStatus(float finalGrade){
         this.status = finalGrade >= 6 ? Status.APROVADO : Status.REPROVADO;
     }
