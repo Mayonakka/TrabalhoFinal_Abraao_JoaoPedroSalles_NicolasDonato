@@ -1,14 +1,14 @@
 package lists;
 
 import java.util.LinkedList;
-import main.Classroom;
-import main.Course;
-import main.Professor;
-import main.Student;
+import components.Classroom;
+import components.Course;
+import components.Professor;
+import components.Student;
 import userinterface.UI;
 
 
-public class ClassroomList implements Lists{
+public class ClassroomList implements Lists {
 
     private LinkedList<Classroom> classroomList = new LinkedList();
 

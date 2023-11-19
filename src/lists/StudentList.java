@@ -1,11 +1,11 @@
 package lists;
 
 import java.util.LinkedList;
-import main.Person;
-import main.Student;
+import components.Person;
+import components.Student;
 import userinterface.UI;
 
-public class StudentList implements UserLists {
+public class StudentList implements UserLists{
 
     private LinkedList<Student> studentList = new LinkedList();
 

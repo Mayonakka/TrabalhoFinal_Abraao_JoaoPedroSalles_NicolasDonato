@@ -1,6 +1,6 @@
 package lists;
 
-import main.Person;
+import components.Person;
 
 public interface UserLists extends Lists{
     public boolean createUser(String name);

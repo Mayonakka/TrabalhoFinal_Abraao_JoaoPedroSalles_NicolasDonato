@@ -3,14 +3,15 @@ package userinterface;
 import java.util.Scanner;
 import lists.StudentList;
 import lists.ProfessorList;
+import lists.SaveLoadList;
 import lists.ClassroomList;
 
 public class App {
     public static void main(String[] args) {
 
-        ClassroomList crList = new ClassroomList();
-        ProfessorList pList = new ProfessorList();
-        StudentList sList = new StudentList();
+        ProfessorList pList = (ProfessorList) SaveLoadList.load("../files/professorList.dat");
+        StudentList sList = (StudentList) SaveLoadList.load("../files/studentList.dat");
+        ClassroomList crList = (ClassroomList) SaveLoadList.load("../files/classroomList.dat");
         Scanner input = new Scanner(System.in);
 
         boolean exit = true;
@@ -36,5 +37,11 @@ public class App {
                     break;
             }
         } while (exit);
+
+        SaveLoadList.save(pList, "../files/professorList.dat");
+        SaveLoadList.save(sList, "../files/studentList.dat");
+        SaveLoadList.save(crList, "../files/classroomList.dat");
+        
+        input.close();
     }
 }

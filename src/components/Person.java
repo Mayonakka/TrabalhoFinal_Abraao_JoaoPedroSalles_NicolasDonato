@@ -1,4 +1,4 @@
-package main;
+package components;
 
 public abstract class Person {
 

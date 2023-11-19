@@ -150,7 +150,7 @@ public class UI {
     }
     
     static void showClassroomGrades(Scanner input, ClassroomList crList) throws Exception{
-        System.out.println(crList.toStringClassroomGrades(typeCodeClass(input)));
+        System.out.print(crList.toStringClassroomGrades(typeCodeClass(input)));
         
     }
     
