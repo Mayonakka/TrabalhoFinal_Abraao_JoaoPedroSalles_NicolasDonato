@@ -86,7 +86,7 @@ public class UI {
     }
 
     static void invalidOption(Scanner input) {
-        System.out.println(RED + "Opcao invalida" + RESET);
+        formatPrint("Opcao invalida");
         input.nextLine();
     }
 
@@ -139,34 +139,19 @@ public class UI {
         System.out.println(RED + s + RESET);
     }
 
-    static void showList(Lists l, Scanner input){
-        try {
-            System.out.println("\n" + l.toStringList() + "\n");
-        } catch (Exception e) {
-            formatPrint(e.getMessage());
-        } finally {
-            input.nextLine();
-        }
+    static void showList(Lists l, Scanner input) throws Exception{
+        System.out.println("\n" + l.toStringList() + "\n");
+        
     }
 
-    static void showClassroom(ClassroomList crList, Scanner input){
-        try {
-            System.out.println("\n" + crList.toStringClassroom(typeCodeClass(input)) + "\n");
-        } catch (Exception e) {
-            formatPrint(e.getMessage());
-        } finally {
-            input.nextLine();
-        }
+    static void showClassroom(ClassroomList crList, Scanner input) throws Exception{
+        System.out.println("\n" + crList.toStringClassroom(typeCodeClass(input)) + "\n");
+        
     }
     
-    static void showClassroomGrades(Scanner input, ClassroomList crList){
-        try {
-            crList.toStringClassroomGrades(typeCodeClass(input));
-        } catch (Exception e) {
-            formatPrint(e.getMessage());
-        } finally {
-            input.nextLine();
-        }
+    static void showClassroomGrades(Scanner input, ClassroomList crList) throws Exception{
+        System.out.println(crList.toStringClassroomGrades(typeCodeClass(input)));
+        
     }
     
     static void check(boolean check){

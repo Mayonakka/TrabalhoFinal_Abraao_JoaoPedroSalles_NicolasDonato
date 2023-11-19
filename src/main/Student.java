@@ -52,7 +52,7 @@ public class Student extends Person {
 
     public String toStringGrade(String cName) throws Exception {
         Course c = searchCourse(cName);
-        return getCode() + "  |  " + getName() + c.toString() +"\n";
+        return getCode() + "  |  " + getName() + "  |  " +  c.toString() +"\n";
     }
 
     @Override

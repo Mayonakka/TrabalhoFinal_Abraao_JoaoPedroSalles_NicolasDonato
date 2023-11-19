@@ -52,7 +52,7 @@ public class ClassroomList implements Lists{
 
     public boolean addGrade(int crCode, int uCode, float a, float b) throws Exception{
         Classroom cr = searchList(crCode);
-        return cr.searchStudent(uCode).searchCourse(cr.getCourse()).calcFinalGrade(crCode, uCode);
+        return cr.searchStudent(uCode).searchCourse(cr.getCourse()).calcFinalGrade(a, b);
     }
 
     public Classroom searchList(int classroomCode) throws Exception {

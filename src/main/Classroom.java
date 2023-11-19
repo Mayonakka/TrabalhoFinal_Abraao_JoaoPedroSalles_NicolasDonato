@@ -41,7 +41,7 @@ public class Classroom {
         this.semesterYear = semesterYear;
     }
     public boolean setProfessor(Professor professor) throws Exception{
-        if(professor == null){
+        if(this.professor == null){
             this.professor = professor;
             return (this.professor == professor);
         }
