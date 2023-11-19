@@ -6,14 +6,14 @@ public class Course {
     private Status status;
     private float gradeA;
     private float gradeB;
-    private float gradeC;
+    private float finalGrade;
     
     public Course(String name) {
         this.name = name;
         this.status = Status.MATRICULADO;
         this.gradeA = 0;
         this.gradeB = 0;
-        this.gradeC = 0;
+        this.finalGrade = 0;
     }
 
     public String getName() {
@@ -28,34 +28,31 @@ public class Course {
     public float getGradeB() {
         return gradeB;
     }
-    public float getGradeC() {
-        return gradeC;
+    public float getfinalGrade() {
+        return finalGrade;
     }
     public void setName(String name) {
         this.name = name;
     }
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-    public void setGradeA(float gradeA) {
-        this.gradeA = gradeA;
-    }
-    public void setGradeB(float gradeB) {
-        this.gradeB = gradeB;
-    }
-    public void setGradeC(float gradeC) {
-        this.gradeC = gradeC;
+   
+    public boolean calcFinalGrade(float a, float b) throws Exception{
+        if(checkGrade(a) && checkGrade(b)){
+            this.gradeA = a;
+            this.gradeB = b;
+            this.finalGrade = (a + (b*2))/3;
+            this.status = finalGrade >= 6 ? Status.APROVADO : Status.REPROVADO;
+            return true;
+        } else{
+            throw new Exception("\nValores de nota invalidos");
+        }
     }
 
-    
-    public void courseStatus(float finalGrade){
-        this.status = finalGrade >= 6 ? Status.APROVADO : Status.REPROVADO;
+    public boolean checkGrade(float x) {
+        return (x <= 10 && x >= 0);
     }
 
     @Override
     public String toString() {
-        return "Disciplina: "+ name +" | "+ status +" | A: "+ gradeA +" | B: "+ gradeB +" | C: "+ gradeC +"\n";
+        return name +" | A: "+ gradeA +" | B: "+ gradeB +" | Nota Final: "+ finalGrade +" | "+ status +"\n";
     }
-
-    
 }

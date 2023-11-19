@@ -8,9 +8,9 @@ import lists.ClassroomList;
 public class App {
     public static void main(String[] args) {
         
+        ClassroomList crList = new ClassroomList();
          ProfessorList pList = new ProfessorList();
            StudentList sList = new StudentList();
-        ClassroomList crList = new ClassroomList();
                Scanner input = new Scanner(System.in);
 
         boolean exit = true;
@@ -23,7 +23,7 @@ public class App {
                 Menu.option2(input, sList, pList, crList);
                 break;
             case 3:
-                Menu.option3(input);
+                Menu.option3(input, crList);
                 break;
             case 4:
                 Menu.option4(input, sList);

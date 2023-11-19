@@ -20,20 +20,14 @@ public class ClassroomList implements Lists{
         this.classroomList = classroomList;
     }
 
+
     public boolean createClass(String course, String semesterYear) {
-        int nextClassroomCode = (classroomList.isEmpty()) ? 1 : classroomList.getLast().getClassroomCode() + 1;
+        int nextClassroomCode = (classroomList.isEmpty()) ? 1001 : classroomList.getLast().getClassroomCode() + 1;
         return classroomList.add(new Classroom(course, semesterYear, nextClassroomCode));
     }
 
     public boolean deleteClass(int classroomCode) {
         return classroomList.removeIf(p -> p.getClassroomCode() == classroomCode); 
-    }
-
-    public Classroom searchList(int classroomCode) throws Exception {
-        for (Classroom classroom : classroomList)
-            if (classroom.getClassroomCode() == classroomCode)
-                return classroom;
-        throw new Exception("Turma nao encontrada");
     }
 
     public boolean addStudentInClassroom(StudentList sList, int uCode, int crCode) throws Exception {
@@ -56,23 +50,51 @@ public class ClassroomList implements Lists{
         return searchList(crCode).setProfessor(null);
     }
 
-    @Override
-    public String toStringList(int i) throws Exception {
-        String sb = UI.CLEAR
-        +"+-------------------------------------------+"
-		+"|              LISTA DE TURMAS              |"
-		+"+-------------------------------------------+";
+    public boolean addGrade(int crCode, int uCode, float a, float b) throws Exception{
+        Classroom cr = searchList(crCode);
+        return cr.searchStudent(uCode).searchCourse(cr.getCourse()).calcFinalGrade(crCode, uCode);
+    }
 
+    public Classroom searchList(int classroomCode) throws Exception {
+        for (Classroom classroom : classroomList)
+            if (classroom.getClassroomCode() == classroomCode)
+                return classroom;
+        throw new Exception("\nTurma nao encontrada");
+    }
+
+    //toStrings
+    @Override
+    public String toStringList() throws Exception{
+        String sb = UI.CLEAR
+        +"\n\n+-------------------------------------------+"
+	      +"\n|              LISTA DE TURMAS              |"
+		  +"\n+-------------------------------------------+\n";
+          return sb + toStringList(0);
+    }
+    
+    public String toStringList(int i) throws Exception {
         if (!classroomList.isEmpty())
             if(i == classroomList.size() -1)
-                return sb + (classroomList.getLast().toString());
+                return  (classroomList.getLast().toString());
             else {
-                return sb += classroomList.get(i).toString() + toStringList(++i);
+                return classroomList.get(i).toString() + toStringList(++i);
             }
-        throw new Exception("\nLista vazia");
+        throw new Exception("\nNao ha turmas cadastradas");
     }
     
     public String toStringClassroom(int crCode) throws Exception{
-        return searchList(crCode).toStringStudents();
+        String sb = UI.CLEAR
+        +"\n\n+-------------------------------------------+"
+	      +"\n|             DETALHES DA TURMA             |"
+		  +"\n+-------------------------------------------+\n";
+        return sb + searchList(crCode).toStringStudents();
+    }
+
+    public String toStringClassroomGrades(int crCode) throws Exception{
+        String sb = UI.CLEAR
+        +"\n\n+-------------------------------------------+"
+	      +"\n|             BOLETIM DA TURMA              |"
+		  +"\n+-------------------------------------------+\n";
+        return sb + searchList(crCode).toStringStudentsGrades();
     }
 }

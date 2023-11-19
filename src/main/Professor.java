@@ -2,8 +2,8 @@ package main;
 
 public class Professor extends Person {
 
-    public Professor(String name, String cpf, int code) {
-        super(name, cpf, code);
+    public Professor(String name, int code) {
+        super(name, code);
     }
 
     @Override

@@ -18,9 +18,9 @@ public class ProfessorList implements UserLists{
     
 
     @Override
-    public boolean createUser(String name, String cpf) {
-        int nextProfessorCode = (professorList.isEmpty()) ? 101 : professorList.getLast().getCode() + 1;
-        return professorList.add(new Professor(name, cpf, nextProfessorCode));
+    public boolean createUser(String name) {
+        int nextProfessorCode = (professorList.isEmpty()) ? 1001 : professorList.getLast().getCode() + 1;
+        return professorList.add(new Professor(name, nextProfessorCode));
     }
 
     public boolean deleteUser(int uCode) {
@@ -31,21 +31,24 @@ public class ProfessorList implements UserLists{
         for (Person person : professorList)
             if (person.getCode() == uCode)
                 return person;
-        throw new Exception("Professor nao encontrado");
+        throw new Exception("\nProfessor nao encontrado");
     }
 
-    public String toStringList(int i) throws Exception {
+    public String toStringList() throws Exception{
         String sb = UI.CLEAR
-        +"+-------------------------------------------+"
-		+"|            LISTA DE PROFESSORES           |"
-		+"+-------------------------------------------+";
-
+        +"\n\n+-------------------------------------------+"
+		  +"\n|            LISTA DE PROFESSORES           |"
+		  +"\n+-------------------------------------------+\n";
+          return sb + toStringList(0);
+    }
+    
+    public String toStringList(int i) throws Exception {
         if (!professorList.isEmpty())
             if(i == professorList.size() -1)
-                return sb + (professorList.getLast().toString());
+                return (professorList.getLast().toString());
             else {
-                return sb += professorList.get(i).toString() + toStringList(++i);
+                return professorList.get(i).toString() + toStringList(++i);
             }
-        throw new Exception("\nLista vazia");
+        throw new Exception("\nNao ha professores cadastrados");
     }
 }

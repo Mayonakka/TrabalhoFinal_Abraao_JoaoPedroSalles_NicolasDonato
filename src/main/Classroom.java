@@ -49,14 +49,24 @@ public class Classroom {
     }
 
     
-    public boolean addUser(Student student) {
-        return this.students.add(student);
+    public boolean addUser(Student student) throws Exception {
+        if(!students.contains(student))
+            return this.students.add(student);
+        throw new Exception("\nAluno ja esta matriculado nesta disciplina");
     }
 
     public boolean removeUser(Student student) {
         return this.students.remove(student);
     }
 
+    public Student searchStudent(int uCode) throws Exception{
+        for (Student s : students)
+            if (s.getCode() == uCode)
+                return s;
+        throw new Exception("Aluno nao encontrado");
+    }
+
+    // toString
     public String toStringStudents() {
         String s = toString() + "\n\n";
         for (Student student : students) {
@@ -65,9 +75,17 @@ public class Classroom {
         return s;
     }
 
+    public String toStringStudentsGrades() throws Exception {
+        String s = toString() + "\n\n";
+        for (Student student : students) {
+            s += (student.toStringGrade(getCourse()));
+        }
+        return s;
+    }
+
     @Override
     public String toString() {
         String n = (professor == null) ? "-" : professor.getName();
-        return "Turma: " + classroomCode + " | " + semesterYear + " | Disciplina: " + course  + " | Professor " + n;
+        return classroomCode + " | " + semesterYear + " | " + course  + " | Professor " + n;
     }
 }

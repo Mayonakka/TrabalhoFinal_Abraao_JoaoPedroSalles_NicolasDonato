@@ -78,8 +78,7 @@ public class UI {
 		System.out.println("|             GESTAO DE NOTAS               |");
 		System.out.println("+-------------------------------------------+");
 		System.out.println("| 1) - Adicionar Notas                      |");
-		System.out.println("| 2) - Adicionar Notas de Recuperacao       |");
-		System.out.println("| 3) - Boletim de Turma                     |");
+		System.out.println("| 2) - Boletim de Turma                     |");
 		System.out.println("| 0) - Voltar                               |");
 		System.out.println("+-------------------------------------------+");
 
@@ -99,11 +98,6 @@ public class UI {
     
     static String typeName(Scanner input){
         System.out.println("\nDigite o nome do Usuario: ");
-        return input.nextLine();
-    }
-
-    static String typeCPF(Scanner input){
-        System.out.println("\nDigite o CPF do Usuario: ");
         return input.nextLine();
     }
 
@@ -130,12 +124,26 @@ public class UI {
         return semesterYear;
     }
 
+    static float typeGradeA(Scanner input){
+        System.out.println("\nDigite a Nota do Grau A: ");
+        return Float.parseFloat(input.nextLine());
+    }
+
+    static float typeGradeB(Scanner input){
+        System.out.println("\nDigite a Nota do Grau B: ");
+        return Float.parseFloat(input.nextLine());
+    }
+
     // Shows and Checks
+    static void formatPrint(String s){
+        System.out.println(RED + s + RESET);
+    }
+
     static void showList(Lists l, Scanner input){
         try {
-            System.out.println("\n" + l.toStringList(0) + "\n");
+            System.out.println("\n" + l.toStringList() + "\n");
         } catch (Exception e) {
-            System.out.println(RED + e.getMessage() + RESET);
+            formatPrint(e.getMessage());
         } finally {
             input.nextLine();
         }
@@ -145,11 +153,23 @@ public class UI {
         try {
             System.out.println("\n" + crList.toStringClassroom(typeCodeClass(input)) + "\n");
         } catch (Exception e) {
-            System.out.println(RED + e.getMessage() + RESET);
+            formatPrint(e.getMessage());
+        } finally {
+            input.nextLine();
         }
     }
-
-    static String check(boolean check){
-        return ((check)? UI.GREEN + "Concluido com sucesso" + UI.RESET:"Tente novamente");
+    
+    static void showClassroomGrades(Scanner input, ClassroomList crList){
+        try {
+            crList.toStringClassroomGrades(typeCodeClass(input));
+        } catch (Exception e) {
+            formatPrint(e.getMessage());
+        } finally {
+            input.nextLine();
+        }
+    }
+    
+    static void check(boolean check){
+        System.out.println(((check)? UI.GREEN + "\nConcluido com sucesso" + UI.RESET:"Tente novamente"));
     }
 }

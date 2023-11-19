@@ -17,11 +17,11 @@ public class Menu {
         do {
         switch (UI.showOption1(input)) {
             case 1:
-                System.out.println(UI.check(Options.registerUser(input, sList, pList)));
+                UI.check(Options.registerUser(input, sList, pList));
                 input.nextLine();
                 break;
             case 2:
-                System.out.println(UI.check(Options.unregisterUser(input, sList, pList)));
+                UI.check(Options.unregisterUser(input, sList, pList));
                 input.nextLine();
                 break;
             case 3:
@@ -45,7 +45,7 @@ public class Menu {
         do {
         switch (UI.showOption2(input)) {
             case 1:
-                System.out.println(UI.check(Options.registerClass(input, crList)));
+                UI.check(Options.registerClass(input, crList));
                 input.nextLine();
                 break;
             case 2:
@@ -56,7 +56,6 @@ public class Menu {
                 break;
             case 4:
                 UI.showClassroom(crList, input);
-                input.nextLine();
                 break;
             case 0:
                 exit = false;
@@ -73,15 +72,15 @@ public class Menu {
         do{
         switch (UI.showOption2_2(input)) {
             case 1:
-                System.out.println(UI.check(Options.addUserInClassroom(input, sList, pList, crList)));
+                UI.check(Options.addUserInClassroom(input, sList, pList, crList));
                 input.nextLine();
                 break;
             case 2:
-                System.out.println(UI.check(Options.removeUserInClassroom(input, sList, pList, crList)));
+                UI.check(Options.removeUserInClassroom(input, sList, pList, crList));
                 input.nextLine();
                 break;
             case 3:
-                System.out.println(UI.check(Options.unregisterClass(input, crList)));
+                UI.check(Options.unregisterClass(input, crList));
                 input.nextLine();
                 break;
             case 0:
@@ -94,15 +93,16 @@ public class Menu {
         }while(exit);
     }
 
-    public static void option3(Scanner input) {
+    public static void option3(Scanner input, ClassroomList crList) {
         boolean exit = true;
         do {
         switch (UI.showOption3(input)) {
             case 1:
+                UI.check(Options.addGrade(input, crList));
+                input.nextLine();
                 break;
             case 2:
-                break;
-            case 3:
+                UI.showClassroomGrades(input, crList);
                 break;
             case 0:
                 exit = false;
@@ -116,9 +116,9 @@ public class Menu {
 
     public static void option4(Scanner input, StudentList sList) {
         try {
-            System.out.println(sList.showStudentRecord(UI.typeCodeUser(input)));
+            System.out.println(sList.toStringStudentRecord(UI.typeCodeUser(input)));
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            UI.formatPrint(e.getMessage());
         }
         finally{
             input.nextLine();

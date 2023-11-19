@@ -19,9 +19,9 @@ public class StudentList implements UserLists {
 
     
     @Override
-    public boolean createUser(String name, String cpf) {
+    public boolean createUser(String name) {
         int nextStudentCode = (studentList.isEmpty()) ? 1001 : studentList.getLast().getCode() + 1;
-        return studentList.add(new Student(name, cpf, nextStudentCode));
+        return studentList.add(new Student(name, nextStudentCode));
     }
 
     public boolean deleteUser(int uCode) {
@@ -32,26 +32,30 @@ public class StudentList implements UserLists {
         for (Person person : studentList)
             if (person.getCode() == uCode)
                 return person;
-        throw new Exception("Aluno nao encontrado");
+        throw new Exception("\nAluno nao encontrado");
     }
 
-    public String showStudentRecord(int uCode) throws Exception{
+    // toStrings
+    public String toStringStudentRecord(int uCode) throws Exception{
         Student s = (Student) searchInList(uCode);
-        return s.studentRecord();
+        return s.toStringRecord();
     }
-
-    public String toStringList(int i) throws Exception {
+    
+    public String toStringList() throws Exception{
         String sb = UI.CLEAR
-        +"+-------------------------------------------+"
-		+"|              LISTA DE ALUNOS              |"
-		+"+-------------------------------------------+";
-
+        +"\n\n+-------------------------------------------+"
+		  +"\n|              LISTA DE ALUNOS              |"
+		  +"\n+-------------------------------------------+\n";
+          return sb + toStringList(0);
+    }
+    
+    public String toStringList(int i) throws Exception {
         if (!studentList.isEmpty())
             if(i == studentList.size() -1)
-                return sb + (studentList.getLast().toString());
+                return (studentList.getLast().toString());
             else {
-                return sb += studentList.get(i).toString() + toStringList(++i);
+                return studentList.get(i).toString() + toStringList(++i);
             }
-        throw new Exception("\nLista vazia");
+        throw new Exception("\nNao ha alunos cadastrados");
     }
 }

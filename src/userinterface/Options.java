@@ -9,18 +9,16 @@ import lists.UserLists;
 public class Options {
 
     static UserLists checksTypeUser(int op, StudentList sList, ProfessorList pList) throws Exception{
-        if(op==1 || op==2){
+        if(op==1 || op==2)
             return (op==1)? sList : pList;
-        } else {
-            throw new Exception(UI.RED + "Opcao invalida" + UI.RESET);
-        }
+        throw new Exception("\nOpcao invalida");
     }
     
     static boolean registerUser(Scanner input, StudentList sList, ProfessorList pList) {
         try {
-            return checksTypeUser(UI.professorOrStudent(input), sList, pList).createUser(UI.typeName(input), UI.typeCPF(input));
+            return checksTypeUser(UI.professorOrStudent(input), sList, pList).createUser(UI.typeName(input));
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            UI.formatPrint(e.getMessage());
             return false;
         }
     }
@@ -29,7 +27,7 @@ public class Options {
         try {
             return checksTypeUser(UI.professorOrStudent(input), sList, pList).deleteUser(UI.typeCodeUser(input));
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            UI.formatPrint(e.getMessage());
             return false;
         }
     }
@@ -51,7 +49,7 @@ public class Options {
                 return crList.addStudentInClassroom(sList, codeUser, codeClass);
             return crList.addProfessorInClassroom(pList, codeUser, codeClass);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            UI.formatPrint(e.getMessage());
         }
         return false;
     }
@@ -65,7 +63,16 @@ public class Options {
                 return crList.removeStudentInClassroom(sList, codeUser, codeClass);
             return crList.removeProfessorInClassroom(pList, codeClass);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            UI.formatPrint(e.getMessage());
+        }
+        return false;
+    }
+
+    static boolean addGrade(Scanner input, ClassroomList crList){
+        try {
+            return crList.addGrade(UI.typeCodeClass(input), UI.typeCodeUser(input), UI.typeGradeA(input), UI.typeGradeB(input));
+        } catch (Exception e) {
+            UI.formatPrint(e.getMessage());
         }
         return false;
     }
