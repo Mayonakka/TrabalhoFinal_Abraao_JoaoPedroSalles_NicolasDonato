@@ -14,9 +14,23 @@ public class Course implements Serializable {
     public Course(String name) {
         this.name = name;
     }
-
     public String getName() {
         return name;
+    }
+    public Status getStatus() {
+        return status;
+    }
+    public float getGradeA() {
+        return gradeA;
+    }
+    public float getGradeB() {
+        return gradeB;
+    }
+    public float getArithimeticAvarage() {
+        return arithimeticAvarage;
+    }
+    public float getWeightedAvarage() {
+        return weightedAvarage;
     }
     
 
