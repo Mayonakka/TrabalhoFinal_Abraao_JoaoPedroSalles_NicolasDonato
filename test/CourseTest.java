@@ -15,7 +15,7 @@ public class CourseTest {
     }
 
     @Test
-    public void testcheckGrade(){
+    public void checkGrade(){
         assertTrue(c.checkGrade(10));
         assertFalse(c.checkGrade(11));
     }

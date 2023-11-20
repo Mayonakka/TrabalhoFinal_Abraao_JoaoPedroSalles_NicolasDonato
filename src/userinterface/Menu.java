@@ -1,7 +1,6 @@
 package userinterface;
 
 import java.util.Scanner;
-
 import datastructures.ClassroomList;
 import datastructures.ProfessorList;
 import datastructures.StudentList;

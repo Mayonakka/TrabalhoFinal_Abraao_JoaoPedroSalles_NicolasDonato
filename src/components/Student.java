@@ -1,7 +1,6 @@
 package components;
 
 import java.util.LinkedList;
-
 import userinterface.UI;
 
 public class Student extends Person {

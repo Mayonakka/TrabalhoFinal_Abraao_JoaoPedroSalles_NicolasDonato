@@ -19,11 +19,11 @@ public class Classroom implements Serializable {
     public String getCourse() {
         return course;
     }
-    public int getClassroomCode() {
-        return classroomCode;
-    }
     public String getSemesterYear() {
         return semesterYear;
+    }
+    public int getClassroomCode() {
+        return classroomCode;
     }
     public Professor getProfessor() {
         return professor;

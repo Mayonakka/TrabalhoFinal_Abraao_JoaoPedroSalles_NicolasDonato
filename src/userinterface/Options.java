@@ -9,7 +9,7 @@ import datastructures.UserLists;
 
 public class Options {
 
-    static UserLists checksTypeUser(int op, StudentList sList, ProfessorList pList) throws Exception{
+    public static UserLists checksTypeUser(int op, StudentList sList, ProfessorList pList) throws Exception{
         if(op==1 || op==2)
             return (op==1)? sList : pList;
         throw new Exception("\nOpcao invalida");
