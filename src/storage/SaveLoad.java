@@ -1,6 +1,8 @@
-package lists;
+package storage;
 
 import java.io.*;
+
+import datastructures.Lists;
 
 public class SaveLoad {
 

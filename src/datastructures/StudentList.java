@@ -1,4 +1,4 @@
-package lists;
+package datastructures;
 
 import java.util.LinkedList;
 import components.Person;
@@ -7,7 +7,7 @@ import userinterface.UI;
 
 public class StudentList implements UserLists{
 
-    private LinkedList<Student> studentList;
+    private LinkedList<Student> studentList = new LinkedList<Student>();
 
     @Override
     public boolean createUser(String name) {

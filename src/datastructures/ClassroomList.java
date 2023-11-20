@@ -1,4 +1,4 @@
-package lists;
+package datastructures;
 
 import java.util.LinkedList;
 import components.Classroom;
@@ -7,10 +7,9 @@ import components.Professor;
 import components.Student;
 import userinterface.UI;
 
-
 public class ClassroomList implements Lists {
 
-    private LinkedList<Classroom> classroomList;
+    private LinkedList<Classroom> classroomList = new LinkedList<Classroom>();
 
     public boolean createClass(String course, String semesterYear) {
         int nextClassroomCode = (classroomList.isEmpty()) ? 1001 : classroomList.getLast().getClassroomCode() + 1;
@@ -18,7 +17,7 @@ public class ClassroomList implements Lists {
     }
 
     public boolean deleteClass(int classroomCode) {
-        return classroomList.removeIf(p -> p.getClassroomCode() == classroomCode); 
+        return classroomList.removeIf(p -> p.getClassroomCode() == classroomCode);
     }
 
     public boolean addStudentInClassroom(StudentList sList, int uCode, int crCode) throws Exception {
@@ -41,7 +40,7 @@ public class ClassroomList implements Lists {
         return searchList(crCode).setProfessor(null);
     }
 
-    public boolean addGrade(int crCode, int uCode, float a, float b) throws Exception{
+    public boolean addGrade(int crCode, int uCode, float a, float b) throws Exception {
         Classroom cr = searchList(crCode);
         return cr.searchStudent(uCode).searchCourse(cr.getCourse()).calcFinalGrade(a, b);
     }
@@ -53,39 +52,39 @@ public class ClassroomList implements Lists {
         throw new Exception("\nTurma nao encontrada");
     }
 
-    //toStrings
+    // toStrings
     @Override
-    public String toStringList() throws Exception{
+    public String toStringList() throws Exception {
         String sb = UI.CLEAR
-        +"\n\n+-------------------------------------------+"
-	      +"\n|              LISTA DE TURMAS              |"
-		  +"\n+-------------------------------------------+\n";
-          return sb + toStringList(0);
+                + "\n\n+-------------------------------------------+"
+                + "\n|              LISTA DE TURMAS              |"
+                + "\n+-------------------------------------------+\n";
+        return sb + toStringList(0);
     }
-    
+
     public String toStringList(int i) throws Exception {
         if (!classroomList.isEmpty())
-            if(i == classroomList.size() -1)
-                return  (classroomList.getLast().toString());
+            if (i == classroomList.size() - 1)
+                return (classroomList.getLast().toString());
             else {
                 return classroomList.get(i).toString() + toStringList(++i);
             }
         throw new Exception("\nNao ha turmas cadastradas");
     }
-    
-    public String toStringClassroom(int crCode) throws Exception{
+
+    public String toStringClassroom(int crCode) throws Exception {
         String sb = UI.CLEAR
-        +"\n\n+-------------------------------------------+"
-	      +"\n|             DETALHES DA TURMA             |"
-		  +"\n+-------------------------------------------+\n";
+                + "\n\n+-------------------------------------------+"
+                + "\n|             DETALHES DA TURMA             |"
+                + "\n+-------------------------------------------+\n";
         return sb + searchList(crCode).toStringStudents();
     }
 
-    public String toStringClassroomGrades(int crCode) throws Exception{
+    public String toStringClassroomGrades(int crCode) throws Exception {
         String sb = UI.CLEAR
-        +"\n\n+-------------------------------------------+"
-	      +"\n|             BOLETIM DA TURMA              |"
-		  +"\n+-------------------------------------------+\n";
+                + "\n\n+-------------------------------------------+"
+                + "\n|             BOLETIM DA TURMA              |"
+                + "\n+-------------------------------------------+\n";
         return sb + searchList(crCode).toStringStudentsGrades();
     }
 }

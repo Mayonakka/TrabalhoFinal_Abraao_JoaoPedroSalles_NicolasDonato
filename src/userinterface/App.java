@@ -1,34 +1,43 @@
 package userinterface;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
-
-import lists.StudentList;
-import lists.ProfessorList;
-import lists.SaveLoad;
-import lists.ClassroomList;
+import datastructures.ClassroomList;
+import datastructures.ProfessorList;
+import datastructures.StudentList;
+import storage.SaveLoad;
 
 public class App {
     public static void main(String[] args) {
 
-        File crFile = new File("src/files/classroomList.json");
-        File sFile = new File("src/files/studentList.json");
-        File pFile = new File("src/files/professorList.json");
+        File crFile = new File("src/storage/files/classroomList.json");
+        File sFile = new File("src/storage/files/studentList.json");
+        File pFile = new File("src/storage/files/professorList.json");
 
         StudentList sList = new StudentList();
         ProfessorList pList = new ProfessorList();
         ClassroomList crList = new ClassroomList();
 
         try {
-            sList = (StudentList) SaveLoad.load(sFile);
-            pList = (ProfessorList) SaveLoad.load(pFile);
-            crList = (ClassroomList) SaveLoad.load(crFile);
-        } catch (ClassNotFoundException | IOException e) {
+            Object sLoaded = SaveLoad.load(sFile);
+            Object pLoaded = SaveLoad.load(pFile);
+            Object crLoaded = SaveLoad.load(crFile);
+
+            if (sLoaded instanceof StudentList)
+                sList = (StudentList) sLoaded;
+
+            if (pLoaded instanceof ProfessorList)
+                pList = (ProfessorList) pLoaded;
+
+            if (crLoaded instanceof ClassroomList)
+                crList = (ClassroomList) crLoaded;
+
+        } catch (Exception e) {
             UI.formatPrint(e.getMessage());
         }
 
         Scanner input = new Scanner(System.in);
+
         boolean exit = true;
         do {
             switch ((int) Menu.mainMenu(input)) {
@@ -58,7 +67,7 @@ public class App {
             SaveLoad.save(sFile, sList);
             SaveLoad.save(pFile, pList);
             SaveLoad.save(crFile, crList);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

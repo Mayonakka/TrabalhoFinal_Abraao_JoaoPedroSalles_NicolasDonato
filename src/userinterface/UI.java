@@ -2,8 +2,8 @@ package userinterface;
 
 import java.util.Scanner;
 
-import lists.ClassroomList;
-import lists.Lists;
+import datastructures.ClassroomList;
+import datastructures.Lists;
 
 public class UI {
 

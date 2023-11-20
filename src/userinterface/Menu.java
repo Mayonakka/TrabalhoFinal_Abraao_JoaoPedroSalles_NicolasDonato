@@ -1,9 +1,10 @@
 package userinterface;
 
 import java.util.Scanner;
-import lists.ClassroomList;
-import lists.ProfessorList;
-import lists.StudentList;
+
+import datastructures.ClassroomList;
+import datastructures.ProfessorList;
+import datastructures.StudentList;
 
 public class Menu {
 

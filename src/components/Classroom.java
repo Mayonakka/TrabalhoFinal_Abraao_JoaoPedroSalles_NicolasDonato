@@ -8,7 +8,7 @@ public class Classroom implements Serializable {
     private String course, semesterYear;
     private int classroomCode;
     private Professor professor;
-    private ArrayList<Student> students;
+    private ArrayList<Student> students = new ArrayList<Student>();
 
     public Classroom(String course, String semesterYear, int classroomCode) {
         this.course = course;
@@ -31,15 +31,7 @@ public class Classroom implements Serializable {
     public ArrayList<Student> getStudents() {
         return students;
     }
-    public void setCourse(String course) {
-        this.course = course;
-    }
-    public void setclassroomCode(int classroomCode) {
-        this.classroomCode = classroomCode;
-    }
-    public void setsemesterYear(String semesterYear) {
-        this.semesterYear = semesterYear;
-    }
+    
     public boolean setProfessor(Professor professor) throws Exception{
         if(this.professor == null){
             this.professor = professor;

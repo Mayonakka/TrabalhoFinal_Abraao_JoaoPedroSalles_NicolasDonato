@@ -7,11 +7,9 @@ public class Course implements Serializable {
 
     private String name;
     private Status status = Status.MATRICULADO;
-    private float gradeA = 0;
-    private float gradeB = 0;
-    private float arithimeticAvarage;
-    private float weightedAvarage;
-    DecimalFormat d = new DecimalFormat("#.##");
+    private float gradeA, gradeB = 0;
+    private float arithimeticAvarage, weightedAvarage;
+    DecimalFormat d = new DecimalFormat("##.#");
 
     public Course(String name) {
         this.name = name;
@@ -20,30 +18,7 @@ public class Course implements Serializable {
     public String getName() {
         return name;
     }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public float getGradeA() {
-        return gradeA;
-    }
-
-    public float getGradeB() {
-        return gradeB;
-    }
-
-    public float getArithimeticAvarage() {
-        return arithimeticAvarage;
-    }
-
-    public float getWeightedAvarage() {
-        return weightedAvarage;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    
 
     public boolean checkGrade(float x) {
         return (x >= 0 && x <= 10);
@@ -54,7 +29,7 @@ public class Course implements Serializable {
             this.gradeA = a;
             this.gradeB = b;
             this.weightedAvarage = (a + b * 2) / 3;
-            this.arithimeticAvarage = a + b;
+            this.arithimeticAvarage = (a + b)/2;
             this.status = weightedAvarage >= 7 ? Status.APROVADO : Status.REPROVADO;
             return true;
         } else {

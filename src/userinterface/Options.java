@@ -1,10 +1,11 @@
 package userinterface;
 
 import java.util.Scanner;
-import lists.ClassroomList;
-import lists.ProfessorList;
-import lists.StudentList;
-import lists.UserLists;
+
+import datastructures.ClassroomList;
+import datastructures.ProfessorList;
+import datastructures.StudentList;
+import datastructures.UserLists;
 
 public class Options {
 

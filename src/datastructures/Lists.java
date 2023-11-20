@@ -1,4 +1,4 @@
-package lists;
+package datastructures;
 
 import java.io.Serializable;
 
