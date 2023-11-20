@@ -7,17 +7,8 @@ import userinterface.UI;
 
 public class StudentList implements UserLists{
 
-    private LinkedList<Student> studentList = new LinkedList();
+    private LinkedList<Student> studentList;
 
-    
-    public LinkedList<Student> getStudenttList() {
-        return studentList;
-    }
-    public void setStudentList(LinkedList<Student> studentList) {
-        this.studentList = studentList;
-    }
-
-    
     @Override
     public boolean createUser(String name) {
         int nextStudentCode = (studentList.isEmpty()) ? 1001 : studentList.getLast().getCode() + 1;

@@ -1,8 +1,9 @@
 package components;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Course {
+public class Course implements Serializable {
 
     private String name;
     private Status status = Status.MATRICULADO;

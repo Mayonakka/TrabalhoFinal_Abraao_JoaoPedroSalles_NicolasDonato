@@ -1,19 +1,34 @@
 package userinterface;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
+
 import lists.StudentList;
 import lists.ProfessorList;
-import lists.SaveLoadList;
+import lists.SaveLoad;
 import lists.ClassroomList;
 
 public class App {
     public static void main(String[] args) {
 
-        ProfessorList pList = (ProfessorList) SaveLoadList.load("../files/professorList.dat");
-        StudentList sList = (StudentList) SaveLoadList.load("../files/studentList.dat");
-        ClassroomList crList = (ClassroomList) SaveLoadList.load("../files/classroomList.dat");
-        Scanner input = new Scanner(System.in);
+        File crFile = new File("src/files/classroomList.json");
+        File sFile = new File("src/files/studentList.json");
+        File pFile = new File("src/files/professorList.json");
 
+        StudentList sList = new StudentList();
+        ProfessorList pList = new ProfessorList();
+        ClassroomList crList = new ClassroomList();
+
+        try {
+            sList = (StudentList) SaveLoad.load(sFile);
+            pList = (ProfessorList) SaveLoad.load(pFile);
+            crList = (ClassroomList) SaveLoad.load(crFile);
+        } catch (ClassNotFoundException | IOException e) {
+            UI.formatPrint(e.getMessage());
+        }
+
+        Scanner input = new Scanner(System.in);
         boolean exit = true;
         do {
             switch ((int) Menu.mainMenu(input)) {
@@ -37,11 +52,14 @@ public class App {
                     break;
             }
         } while (exit);
-
-        SaveLoadList.save(pList, "../files/professorList.dat");
-        SaveLoadList.save(sList, "../files/studentList.dat");
-        SaveLoadList.save(crList, "../files/classroomList.dat");
-        
         input.close();
+
+        try {
+            SaveLoad.save(sFile, sList);
+            SaveLoad.save(pFile, pList);
+            SaveLoad.save(crFile, crList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

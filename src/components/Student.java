@@ -6,7 +6,7 @@ import userinterface.UI;
 
 public class Student extends Person {
 
-    private LinkedList<Course> courses = new LinkedList<Course>();
+    private LinkedList<Course> courses;
 
     public Student(String name, int code) {
         super(name, code);

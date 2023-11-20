@@ -1,14 +1,14 @@
 package components;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Classroom {
+public class Classroom implements Serializable {
 
-    private String course;
+    private String course, semesterYear;
     private int classroomCode;
-    private String semesterYear;
     private Professor professor;
-    private ArrayList<Student> students = new ArrayList();
+    private ArrayList<Student> students;
 
     public Classroom(String course, String semesterYear, int classroomCode) {
         this.course = course;

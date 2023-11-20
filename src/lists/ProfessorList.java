@@ -7,15 +7,7 @@ import userinterface.UI;
 
 public class ProfessorList implements UserLists {
 
-    private LinkedList<Professor> professorList = new LinkedList();
-
-    public LinkedList<Professor> getProfessorList() {
-        return professorList;
-    }
-    public void setProfessorList(LinkedList<Professor> pList) {
-        this.professorList = pList;
-    }
-    
+    private LinkedList<Professor> professorList;
 
     @Override
     public boolean createUser(String name) {

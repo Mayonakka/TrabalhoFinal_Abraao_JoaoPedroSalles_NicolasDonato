@@ -10,16 +10,7 @@ import userinterface.UI;
 
 public class ClassroomList implements Lists {
 
-    private LinkedList<Classroom> classroomList = new LinkedList();
-
-    
-    public LinkedList<Classroom> getclassroomList() {
-        return classroomList;
-    }
-    public void setclassroomList(LinkedList<Classroom> classroomList) {
-        this.classroomList = classroomList;
-    }
-
+    private LinkedList<Classroom> classroomList;
 
     public boolean createClass(String course, String semesterYear) {
         int nextClassroomCode = (classroomList.isEmpty()) ? 1001 : classroomList.getLast().getClassroomCode() + 1;
