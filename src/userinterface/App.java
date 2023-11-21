@@ -1,6 +1,5 @@
 package userinterface;
 
-import java.io.File;
 import java.util.Scanner;
 import datastructures.ClassroomList;
 import datastructures.ProfessorList;
@@ -10,18 +9,14 @@ import storage.SaveLoad;
 public class App {
     public static void main(String[] args) {
 
-        File crFile = new File("src/storage/files/classroomList.json");
-        File sFile = new File("src/storage/files/studentList.json");
-        File pFile = new File("src/storage/files/professorList.json");
-
         StudentList sList = new StudentList();
         ProfessorList pList = new ProfessorList();
         ClassroomList crList = new ClassroomList();
 
         try {
-            Object sLoaded = SaveLoad.load(sFile);
-            Object pLoaded = SaveLoad.load(pFile);
-            Object crLoaded = SaveLoad.load(crFile);
+            Object sLoaded = SaveLoad.load("src/storage/files/studentList.json");
+            Object pLoaded = SaveLoad.load("src/storage/files/professorList.json");
+            Object crLoaded = SaveLoad.load("src/storage/files/classroomList.json");
 
             if (sLoaded instanceof StudentList)
                 sList = (StudentList) sLoaded;
@@ -64,9 +59,9 @@ public class App {
         input.close();
 
         try {
-            SaveLoad.save(sFile, sList);
-            SaveLoad.save(pFile, pList);
-            SaveLoad.save(crFile, crList);
+            SaveLoad.save("src/storage/files/studentList.json", sList);
+            SaveLoad.save("src/storage/files/professorList.json", pList);
+            SaveLoad.save("src/storage/files/classroomList.json", crList);
         } catch (Exception e) {
             e.printStackTrace();
         }

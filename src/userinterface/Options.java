@@ -17,7 +17,6 @@ public class Options {
     
     static boolean registerUser(Scanner input, StudentList sList, ProfessorList pList) throws Exception{
         return checksTypeUser(UI.professorOrStudent(input), sList, pList).createUser(UI.typeName(input));
-        
     }
     
     static boolean unregisterUser(Scanner input, StudentList sList, ProfessorList pList) throws Exception{

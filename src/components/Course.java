@@ -44,7 +44,7 @@ public class Course implements Serializable {
             this.gradeB = b;
             this.weightedAvarage = (a + b * 2) / 3;
             this.arithimeticAvarage = (a + b)/2;
-            this.status = weightedAvarage >= 7 ? Status.APROVADO : Status.REPROVADO;
+            this.status = this.status.checkStatus(weightedAvarage);
             return true;
         } else {
             throw new Exception("\nValores de nota inválidos");

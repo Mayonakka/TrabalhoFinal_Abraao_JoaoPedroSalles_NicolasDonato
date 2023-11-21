@@ -5,12 +5,14 @@ import datastructures.ProfessorList;
 import datastructures.StudentList;
 import userinterface.Options;
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 
 public class OptionsTest {
 
     StudentList sList;
     ProfessorList pList;
+    int input;
 
     @Before
     public void setup() {
@@ -32,7 +34,7 @@ public class OptionsTest {
 
     @Test
     public void registerUser() throws Exception {
-
+        
     }
 
     @Test
