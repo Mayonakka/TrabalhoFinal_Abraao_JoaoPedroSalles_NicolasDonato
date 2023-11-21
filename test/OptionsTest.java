@@ -1,18 +1,20 @@
 package test;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 import datastructures.ProfessorList;
 import datastructures.StudentList;
 import userinterface.Options;
+import userinterface.UI;
 import static org.junit.Assert.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.Scanner;
 import org.junit.Before;
 
 public class OptionsTest {
 
     StudentList sList;
     ProfessorList pList;
-    int input;
 
     @Before
     public void setup() {
@@ -38,7 +40,7 @@ public class OptionsTest {
     }
 
     @Test
-    public void unregisterUser() throws Exception {
+    public void testRegisterUser() throws Exception {
 
     }
 
