@@ -1,9 +1,9 @@
 package test;
 
-import org.junit.Test;
 import datastructures.StudentList;
 import static org.junit.Assert.*;
-import org.junit.Before;    
+import org.junit.Before;
+import org.junit.Test;
     
 public class StudentListTest {
 

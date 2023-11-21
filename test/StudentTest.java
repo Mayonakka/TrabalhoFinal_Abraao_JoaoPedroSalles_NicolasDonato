@@ -1,14 +1,11 @@
 package test;
 
-import org.junit.Test;
+
 
 import components.Course;
 import components.Student;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
+import org.junit.Test;
 import org.junit.Before;    
     
 public class StudentTest {
@@ -41,7 +38,8 @@ public class StudentTest {
 
     @Test
     public void searchCourse() throws Exception{
-        
+        s.addNewCourse(c);
+        assertEquals("CourseTest", s.searchCourse("CourseTest").getName());
     }
 }
     

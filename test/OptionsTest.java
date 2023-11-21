@@ -1,15 +1,11 @@
 package test;
 
+import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
+import static org.junit.Assert.*;
 import datastructures.ProfessorList;
 import datastructures.StudentList;
 import userinterface.Options;
-import userinterface.UI;
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import java.util.Scanner;
-import org.junit.Before;
 
 public class OptionsTest {
 

@@ -40,7 +40,6 @@ public class Classroom implements Serializable {
         throw new Exception("Turma ja possui professor");
     }
 
-    
     public boolean addUser(Student student) throws Exception {
         if(!students.contains(student))
             return this.students.add(student);

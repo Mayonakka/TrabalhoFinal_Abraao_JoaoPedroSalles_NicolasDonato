@@ -1,9 +1,10 @@
 package test;
 
-import static org.junit.Assert.*;
-import org.junit.*;
 import components.Course;
 import components.Status;
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.Before;    
 
 public class CourseTest {
 

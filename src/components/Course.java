@@ -32,7 +32,6 @@ public class Course implements Serializable {
     public float getWeightedAvarage() {
         return weightedAvarage;
     }
-    
 
     public boolean checkGrade(float x) {
         return (x >= 0 && x <= 10);
