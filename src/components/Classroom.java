@@ -19,21 +19,25 @@ public class Classroom implements Serializable {
     public String getCourse() {
         return course;
     }
+
     public String getSemesterYear() {
         return semesterYear;
     }
+
     public int getClassroomCode() {
         return classroomCode;
     }
+
     public Professor getProfessor() {
         return professor;
     }
+
     public ArrayList<Student> getStudents() {
         return students;
     }
-    
-    public boolean setProfessor(Professor professor) throws Exception{
-        if(this.professor == null){
+
+    public boolean setProfessor(Professor professor) throws Exception {
+        if (this.professor == null || professor == null) {
             this.professor = professor;
             return (this.professor == professor);
         }
@@ -41,7 +45,7 @@ public class Classroom implements Serializable {
     }
 
     public boolean addUser(Student student) throws Exception {
-        if(!students.contains(student))
+        if (!students.contains(student))
             return this.students.add(student);
         throw new Exception("\nAluno ja esta matriculado nesta disciplina");
     }
@@ -50,7 +54,7 @@ public class Classroom implements Serializable {
         return this.students.remove(student);
     }
 
-    public Student searchStudent(int uCode) throws Exception{
+    public Student searchStudent(int uCode) throws Exception {
         for (Student s : students)
             if (s.getCode() == uCode)
                 return s;
@@ -77,6 +81,6 @@ public class Classroom implements Serializable {
     @Override
     public String toString() {
         String n = (professor == null) ? "-" : professor.getName();
-        return classroomCode + " | " + semesterYear + " | " + course  + " | Professor " + n;
+        return classroomCode + " | " + semesterYear + " | " + course + " | Professor " + n;
     }
 }
