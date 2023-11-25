@@ -81,6 +81,6 @@ public class Classroom implements Serializable {
     @Override
     public String toString() {
         String n = (professor == null) ? "-" : professor.getName();
-        return classroomCode + " | " + semesterYear + " | " + course + " | Professor " + n;
+        return classroomCode + " | " + semesterYear + " | " + course + " | Professor: " + n;
     }
 }

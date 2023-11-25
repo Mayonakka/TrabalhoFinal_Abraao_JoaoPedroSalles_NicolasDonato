@@ -16,20 +16,20 @@ public class StudentListTest {
 
     @Test
     public void createUser() {
-        assertTrue(sList.createUser("Test"));
+        assertTrue(sList.createUser("sList"));
     }
 
     @Test
     public void deleteUser() {
-        sList.createUser("Test");
+        sList.createUser("sList");
         assertTrue(sList.deleteUser(1001));
         assertFalse(sList.deleteUser(1002));
     }
     
     @Test
     public void searchInList() throws Exception{
-        sList.createUser("Test");
-        assertEquals("Test", sList.searchInList(1001).getName());
+        sList.createUser("sList");
+        assertEquals("sList", sList.searchInList(1001).getName());
     }
 }
     

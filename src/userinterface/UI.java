@@ -64,8 +64,8 @@ public class UI {
 		System.out.println("|              EDITAR TURMAS                |");
 		System.out.println("+-------------------------------------------+");
 		System.out.println("| 1) - Adicionar Usuario                    |");
-		System.out.println("| 2) - Removar Usuario                      |");
-		System.out.println("| 3) - Excluir Usuario                      |");
+		System.out.println("| 2) - Remover Usuario                      |");
+		System.out.println("| 3) - Remover Turma                        |");
 		System.out.println("| 0) - Voltar                               |");
 		System.out.println("+-------------------------------------------+");
 

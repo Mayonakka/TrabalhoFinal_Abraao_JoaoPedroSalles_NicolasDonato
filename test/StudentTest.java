@@ -1,7 +1,5 @@
 package test;
 
-
-
 import components.Course;
 import components.Student;
 import static org.junit.Assert.*;
@@ -15,8 +13,8 @@ public class StudentTest {
 
     @Before
     public void setup(){
-        s = new Student("Test", 1001);
-        c = new Course("CourseTest");
+        s = new Student("Student", 1001);
+        c = new Course("Course");
     }
         
     @Test
@@ -32,14 +30,14 @@ public class StudentTest {
     @Test
     public void removeCourse() throws Exception{
         s.addNewCourse(c);
-        assertTrue(s.removeCourse("CourseTest"));
-        assertFalse(s.removeCourse("CourseTest"));
+        assertTrue(s.removeCourse("Course"));
+        assertFalse(s.removeCourse("Course"));
     }
 
     @Test
     public void searchCourse() throws Exception{
         s.addNewCourse(c);
-        assertEquals("CourseTest", s.searchCourse("CourseTest").getName());
+        assertEquals("Course", s.searchCourse("Course").getName());
     }
 }
     

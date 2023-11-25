@@ -15,24 +15,24 @@ public class Options {
         throw new Exception("\nOpcao invalida");
     }
     
-    static boolean registerUser(Scanner input, StudentList sList, ProfessorList pList) throws Exception{
+    public static boolean registerUser(Scanner input, StudentList sList, ProfessorList pList) throws Exception{
         return checksTypeUser(UI.professorOrStudent(input), sList, pList).createUser(UI.typeName(input));
     }
     
-    static boolean unregisterUser(Scanner input, StudentList sList, ProfessorList pList) throws Exception{
+    public static boolean unregisterUser(Scanner input, StudentList sList, ProfessorList pList) throws Exception{
         return checksTypeUser(UI.professorOrStudent(input), sList, pList).deleteUser(UI.typeCodeUser(input));
 
     }
 
-    static boolean registerClass(Scanner input, ClassroomList crList){
+    public static boolean registerClass(Scanner input, ClassroomList crList){
         return crList.createClass(UI.typeClassCourse(input), UI.typeClassSemester(input));
     }
 
-    static boolean unregisterClass(Scanner input, ClassroomList crList){
+    public static boolean unregisterClass(Scanner input, ClassroomList crList){
         return crList.deleteClass(UI.typeCodeClass(input));
     }
 
-    static boolean addUserInClassroom(Scanner input, StudentList sList, ProfessorList pList,  ClassroomList crList) throws Exception{
+    public static boolean addUserInClassroom(Scanner input, StudentList sList, ProfessorList pList,  ClassroomList crList) throws Exception{
         UserLists ul = checksTypeUser(UI.professorOrStudent(input), sList, pList);
         int codeUser = UI.typeCodeUser(input);
         int codeClass = UI.typeCodeClass(input);
@@ -43,7 +43,7 @@ public class Options {
        
     }
 
-    static boolean removeUserInClassroom(Scanner input, StudentList sList, ProfessorList pList,  ClassroomList crList) throws Exception {
+    public static boolean removeUserInClassroom(Scanner input, StudentList sList, ProfessorList pList,  ClassroomList crList) throws Exception {
         UserLists ul = checksTypeUser(UI.professorOrStudent(input), sList, pList);
         int codeUser = UI.typeCodeUser(input);
         int codeClass = UI.typeCodeClass(input);
@@ -53,7 +53,7 @@ public class Options {
             return crList.removeProfessorInClassroom(pList, codeClass);
     }
 
-    static boolean addGrade(Scanner input, ClassroomList crList) throws Exception{
+    public static boolean addGrade(Scanner input, ClassroomList crList) throws Exception{
         return crList.addGrade(UI.typeCodeClass(input), UI.typeCodeUser(input), UI.typeGradeA(input), UI.typeGradeB(input));
     }
 }
